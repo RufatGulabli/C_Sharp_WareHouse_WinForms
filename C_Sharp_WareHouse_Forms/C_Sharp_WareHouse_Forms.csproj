@@ -64,6 +64,12 @@
     <Compile Include="MainViewForm.Designer.cs">
       <DependentUpon>MainViewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderAdding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderAdding.Designer.cs">
+      <DependentUpon>OrderAdding.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="ProductAdding.cs">
       <SubType>Form</SubType>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainViewForm.resx">
       <DependentUpon>MainViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderAdding.resx">
+      <DependentUpon>OrderAdding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductAdding.resx">
       <DependentUpon>ProductAdding.cs</DependentUpon>

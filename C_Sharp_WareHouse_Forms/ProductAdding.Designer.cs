@@ -108,7 +108,7 @@
             0,
             0});
             this.numricUpDownQuan.Name = "numricUpDownQuan";
-            this.numricUpDownQuan.Size = new System.Drawing.Size(258, 26);
+            this.numricUpDownQuan.Size = new System.Drawing.Size(215, 26);
             this.numricUpDownQuan.TabIndex = 2;
             // 
             // richTextBoxDesc
