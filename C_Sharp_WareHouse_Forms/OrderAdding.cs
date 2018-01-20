@@ -16,5 +16,10 @@ namespace C_Sharp_WareHouse_Forms
         {
             InitializeComponent();
         }
+
+        private void btnCanx_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

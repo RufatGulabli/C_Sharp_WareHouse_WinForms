@@ -8,9 +8,9 @@ namespace C_Sharp_WareHouse_Forms
 {
     public static class Containers
     {
-        public static List<Product> ProductList = new List<Product>();
-        public static List<Customer> CustomerList = new List<Customer>();
-        public static List<Order> OrderList = new List<Order>();
+        static List<Product> ProductList = new List<Product>();
+        static List<Customer> CustomerList = new List<Customer>();
+        static List<Order> OrderList = new List<Order>();
 
         public static void CreateProduct(string articleName, decimal price, int quantity, string desc)
         {
@@ -32,6 +32,10 @@ namespace C_Sharp_WareHouse_Forms
             OrderList.Add(newOrder);
             return;
         }
+
+        public static List<Product> GetProductList() => ProductList;
+        public static List<Customer> GetCustomerList() => CustomerList;
+        public static List<Order> GetOrderList() => OrderList;
     }
 
 }

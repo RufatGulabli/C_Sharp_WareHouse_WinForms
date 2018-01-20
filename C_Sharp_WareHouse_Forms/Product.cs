@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace C_Sharp_WareHouse_Forms
 {
+
     public class Product
     {
+        static int IDCounter = 0;
+        public int UniqueID { get; set; }
         public string ArticleName { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
@@ -16,6 +19,7 @@ namespace C_Sharp_WareHouse_Forms
         public Product() {}
         public Product(string name, decimal price, int quantity, string descrptn)
         {
+            UniqueID = ++IDCounter;
             ArticleName = name;
             Price = price;
             Quantity = quantity;
@@ -25,6 +29,8 @@ namespace C_Sharp_WareHouse_Forms
 
     public class Customer
     {
+        static int IDCounter = 0;
+        public int UniqueID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -33,6 +39,7 @@ namespace C_Sharp_WareHouse_Forms
         public Customer() {}
         public Customer(string name, string surname, string mail, string phone, string addr)
         {
+            UniqueID = ++IDCounter;
             FirstName = name;
             LastName = surname;
             Email = mail;
@@ -43,13 +50,17 @@ namespace C_Sharp_WareHouse_Forms
 
     public class Order
     {
+        static int IDCounet = 0;
+        public int UniqueID { get; set; }
         public Customer Client { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
         public DateTime OrderedTime { get; set; }
+
         public Order() {}
         public Order(Customer client, Product prod, int quantity, DateTime date)
         {
+            UniqueID = ++IDCounet;
             Client = client;
             Product = prod;
             Quantity = quantity;

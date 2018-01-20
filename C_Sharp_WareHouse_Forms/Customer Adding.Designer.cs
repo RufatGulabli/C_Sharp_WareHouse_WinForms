@@ -86,7 +86,7 @@
             this.richTxtBxAddr.Location = new System.Drawing.Point(139, 187);
             this.richTxtBxAddr.Name = "richTxtBxAddr";
             this.richTxtBxAddr.Size = new System.Drawing.Size(189, 96);
-            this.richTxtBxAddr.TabIndex = 7;
+            this.richTxtBxAddr.TabIndex = 4;
             this.richTxtBxAddr.Text = "";
             // 
             // label1
@@ -147,12 +147,13 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Green;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(46, 306);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 32);
+            this.button1.Size = new System.Drawing.Size(94, 26);
             this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
@@ -161,13 +162,14 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(193, 306);
+            this.button2.Location = new System.Drawing.Point(210, 306);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 32);
+            this.button2.Size = new System.Drawing.Size(94, 26);
             this.button2.TabIndex = 6;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
@@ -178,7 +180,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(344, 351);
             this.Controls.Add(this.button2);

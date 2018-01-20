@@ -55,6 +55,16 @@
             this.textBxOldUserNm = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.listViewCustomers = new System.Windows.Forms.ListView();
+            this.clmnHdrName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmnHdrSurname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmnHdrEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmnHdrPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmnHdrAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.No = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -62,6 +72,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Gainsboro;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.productToolStripMenuItem,
@@ -69,7 +80,7 @@
             this.orderToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(680, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1247, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -147,6 +158,7 @@
             this.listOfCustomersToolStripMenuItem.Name = "listOfCustomersToolStripMenuItem";
             this.listOfCustomersToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.listOfCustomersToolStripMenuItem.Text = "All Customers";
+            this.listOfCustomersToolStripMenuItem.Click += new System.EventHandler(this.listOfCustomersToolStripMenuItem_Click);
             // 
             // orderToolStripMenuItem
             // 
@@ -160,9 +172,11 @@
             // addNewOrderToolStripMenuItem
             // 
             this.addNewOrderToolStripMenuItem.Name = "addNewOrderToolStripMenuItem";
+            this.addNewOrderToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.addNewOrderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.addNewOrderToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.addNewOrderToolStripMenuItem.Text = "Add New &Order";
+            this.addNewOrderToolStripMenuItem.Click += new System.EventHandler(this.addNewOrderToolStripMenuItem_Click);
             // 
             // allOrdersToolStripMenuItem
             // 
@@ -172,6 +186,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnConfirm);
@@ -183,7 +198,7 @@
             this.panel1.Controls.Add(this.textBxOldPass);
             this.panel1.Controls.Add(this.textBxNewUsernm);
             this.panel1.Controls.Add(this.textBxOldUserNm);
-            this.panel1.Location = new System.Drawing.Point(158, 80);
+            this.panel1.Location = new System.Drawing.Point(834, 374);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(401, 247);
             this.panel1.TabIndex = 1;
@@ -193,11 +208,11 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancel.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCancel.Location = new System.Drawing.Point(214, 190);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(115, 36);
+            this.btnCancel.Size = new System.Drawing.Size(94, 26);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -207,11 +222,11 @@
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.Green;
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfirm.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnConfirm.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnConfirm.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnConfirm.Location = new System.Drawing.Point(57, 190);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(115, 36);
+            this.btnConfirm.Size = new System.Drawing.Size(94, 26);
             this.btnConfirm.TabIndex = 8;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -303,9 +318,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 395);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 517);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(680, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1247, 24);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -319,11 +334,118 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(122, 19);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // listViewCustomers
+            // 
+            this.listViewCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewCustomers.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.listViewCustomers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.No,
+            this.clmnHdrName,
+            this.clmnHdrSurname,
+            this.clmnHdrEmail,
+            this.clmnHdrPhone,
+            this.clmnHdrAddress});
+            this.listViewCustomers.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewCustomers.FullRowSelect = true;
+            this.listViewCustomers.GridLines = true;
+            this.listViewCustomers.Location = new System.Drawing.Point(0, 27);
+            this.listViewCustomers.Name = "listViewCustomers";
+            this.listViewCustomers.Size = new System.Drawing.Size(1247, 341);
+            this.listViewCustomers.TabIndex = 3;
+            this.listViewCustomers.UseCompatibleStateImageBehavior = false;
+            this.listViewCustomers.View = System.Windows.Forms.View.Details;
+            this.listViewCustomers.Visible = false;
+            // 
+            // clmnHdrName
+            // 
+            this.clmnHdrName.Text = "Name";
+            this.clmnHdrName.Width = 158;
+            // 
+            // clmnHdrSurname
+            // 
+            this.clmnHdrSurname.Text = "Surname";
+            this.clmnHdrSurname.Width = 187;
+            // 
+            // clmnHdrEmail
+            // 
+            this.clmnHdrEmail.Text = "Email";
+            this.clmnHdrEmail.Width = 278;
+            // 
+            // clmnHdrPhone
+            // 
+            this.clmnHdrPhone.Text = "Contact";
+            this.clmnHdrPhone.Width = 208;
+            // 
+            // clmnHdrAddress
+            // 
+            this.clmnHdrAddress.Text = "Address";
+            this.clmnHdrAddress.Width = 380;
+            // 
+            // No
+            // 
+            this.No.Text = "No";
+            this.No.Width = 31;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.Location = new System.Drawing.Point(28, 397);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(136, 43);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "Add New Customer";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Visible = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDelete.Location = new System.Drawing.Point(192, 397);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(136, 43);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Delete Customer";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnUpdate.Location = new System.Drawing.Point(359, 397);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(136, 43);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Update Customer";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Visible = false;
+            // 
             // MainViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 419);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(1247, 541);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.listViewCustomers);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -371,5 +493,15 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ListView listViewCustomers;
+        private System.Windows.Forms.ColumnHeader clmnHdrName;
+        private System.Windows.Forms.ColumnHeader clmnHdrSurname;
+        private System.Windows.Forms.ColumnHeader clmnHdrEmail;
+        private System.Windows.Forms.ColumnHeader clmnHdrPhone;
+        private System.Windows.Forms.ColumnHeader No;
+        private System.Windows.Forms.ColumnHeader clmnHdrAddress;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

@@ -15,6 +15,7 @@ namespace C_Sharp_WareHouse_Forms
         Form1 loginForm = new Form1();
         ProductAdding addingProductForm = null;
         CustomerAdding addingCustomerForm = null;
+        OrderAdding addingOrderForm = null;
 
         public MainViewForm()
         {
@@ -30,8 +31,14 @@ namespace C_Sharp_WareHouse_Forms
         private void MainViewForm_Load(object sender, EventArgs e)
         {
             loginForm = new Form1();
+            loginForm.FormClosed += LoginForm_FormClosed;
             loginForm.ShowDialog();
             toolStripStatusLabel1.Text = $"Logged In as : {loginForm.Username}";
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            loginForm = null;
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,10 +81,16 @@ namespace C_Sharp_WareHouse_Forms
             {
                 addingProductForm = new ProductAdding();
                 addingProductForm.StartPosition = FormStartPosition.CenterParent;
+                addingProductForm.FormClosed += AddingProductForm_FormClosed;
                 addingProductForm.ShowDialog();
             }
             else
                 addingProductForm.Activate();
+            
+        }
+
+        private void AddingProductForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
             addingProductForm = null;
         }
 
@@ -87,11 +100,54 @@ namespace C_Sharp_WareHouse_Forms
             {
                 addingCustomerForm = new CustomerAdding();
                 addingCustomerForm.StartPosition = FormStartPosition.CenterParent;
+                addingCustomerForm.FormClosed += AddingCustomerForm_FormClosed;
                 addingCustomerForm.ShowDialog();
             }
             else
                 addingCustomerForm.Activate();
+        }
+
+        private void AddingCustomerForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
             addingCustomerForm = null;
+        }
+
+        private void addNewOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (addingOrderForm == null)
+            {
+                addingOrderForm = new OrderAdding();
+                addingOrderForm.StartPosition = FormStartPosition.CenterParent;
+                addingOrderForm.FormClosed += AddingOrderForm_FormClosed;
+                addingOrderForm.Show();
+            }
+            else
+                addingOrderForm.Activate();
+        }
+
+        private void AddingOrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            addingOrderForm = null;
+        }
+
+        private void listOfCustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listViewCustomers.Visible = true;
+            btnAdd.Visible = true;
+            btnDelete.Visible = true;
+            btnUpdate.Visible = true;
+            listViewCustomers.Items.Clear();
+            var list = Containers.GetCustomerList();
+            foreach (var item in list)
+            {
+                ListViewItem rows = new ListViewItem(item.UniqueID.ToString());
+                rows.SubItems.Add(item.FirstName);
+                rows.SubItems.Add(item.LastName);
+                rows.SubItems.Add(item.Email);
+                rows.SubItems.Add(item.Contact);
+                rows.SubItems.Add(item.Address);
+                listViewCustomers.Items.Add(rows);
+            }
         }
     }
 }

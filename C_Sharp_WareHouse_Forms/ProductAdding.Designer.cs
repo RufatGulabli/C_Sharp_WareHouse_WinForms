@@ -124,12 +124,13 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSave.Location = new System.Drawing.Point(50, 323);
+            this.btnSave.Location = new System.Drawing.Point(52, 321);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(111, 31);
+            this.btnSave.Size = new System.Drawing.Size(94, 26);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -138,13 +139,14 @@
             // btnCanx
             // 
             this.btnCanx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCanx.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCanx.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCanx.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCanx.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCanx.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCanx.Location = new System.Drawing.Point(232, 323);
+            this.btnCanx.Location = new System.Drawing.Point(234, 321);
             this.btnCanx.Name = "btnCanx";
-            this.btnCanx.Size = new System.Drawing.Size(111, 31);
+            this.btnCanx.Size = new System.Drawing.Size(94, 26);
             this.btnCanx.TabIndex = 5;
             this.btnCanx.Text = "Cancel";
             this.btnCanx.UseVisualStyleBackColor = false;
@@ -186,7 +188,7 @@
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.CancelButton = this.btnCanx;
             this.ClientSize = new System.Drawing.Size(379, 368);
             this.Controls.Add(this.label5);

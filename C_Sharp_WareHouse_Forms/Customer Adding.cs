@@ -27,6 +27,11 @@ namespace C_Sharp_WareHouse_Forms
         {
             try
             {
+                if (!Regex.IsMatch(txtBoxEmail.Text,
+                @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                RegexOptions.IgnoreCase))
+                    throw new Exception("WRONG EMAIL FORMAT");
                 if (this.Controls.OfType<TextBox>().Any(x => string.IsNullOrEmpty(x.Text)))
                     throw new Exception("Please fill all rows");
                 if ((!Regex.IsMatch(txtBxName.Text, @"^[a-zA-Z]{3,50}$")) 
