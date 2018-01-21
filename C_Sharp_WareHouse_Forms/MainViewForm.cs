@@ -25,8 +25,13 @@ namespace C_Sharp_WareHouse_Forms
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loginForm.Close();
-            SaveLoadtoFile.SaveCustomerstoXml();
+            //SaveLoadtoFile.SaveCustomerstoXml();
             this.Close();
+        }
+
+        private void MainViewForm_FormClosed1(object sender, FormClosedEventArgs e)
+        {
+            SaveLoadtoFile.SaveCustomerstoXml();
         }
 
         private void MainViewForm_Load(object sender, EventArgs e)
@@ -137,6 +142,7 @@ namespace C_Sharp_WareHouse_Forms
 
         private void listOfCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
             dataGridView1.Visible = true;
             btnAdd.Visible = true;
             btnDelete.Visible = true;
@@ -169,14 +175,104 @@ namespace C_Sharp_WareHouse_Forms
             }
             else
                 addingCustomerForm.Activate();
+            dataGridView1.Rows.Clear();
+            dataGridView1.Visible = true;
+            btnAdd.Visible = true;
+            btnDelete.Visible = true;
+            btnUpdate.Visible = true;
+            dataGridView1.Update();
+            var list = Containers.GetCustomerList();
+            foreach (var item in list)
+            {
+                string[] row = new string[]
+                {
+                    item.UniqueID.ToString(),
+                    item.FirstName,
+                    item.LastName,
+                    item.Contact,
+                    item.Email,
+                    item.Address
+                };
+                dataGridView1.Rows.Add(row);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            MessageBox.Show(id.ToString());
+            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            if(MessageBox.Show("Are you sure to remove selected item?","Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Containers.DeleteCustomer(id);
+                MessageBox.Show("Removed","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            dataGridView1.Rows.Clear();
+            dataGridView1.Visible = true;
+            btnAdd.Visible = true;
+            btnDelete.Visible = true;
+            btnUpdate.Visible = true;
+            dataGridView1.Update();
+            var list = Containers.GetCustomerList();
+            foreach (var item in list)
+            {
+                string[] row = new string[]
+                {
+                    item.UniqueID.ToString(),
+                    item.FirstName,
+                    item.LastName,
+                    item.Contact,
+                    item.Email,
+                    item.Address
+                };
+                dataGridView1.Rows.Add(row);
+            }
+            return;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            pnlUpdate.Visible = true;
+            
+            txtBxNameUpd.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txtBxSurnameUpd.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txtBoxEmailUpd.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            maskdTxtBxPhoneUpd.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            richTxtBxAddrUpd.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+        }
+
+        private void btnSaveUpd_Click(object sender, EventArgs e)
+        {
+            int index = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            Containers.UpdateCustomer(index, txtBxNameUpd.Text, txtBxSurnameUpd.Text, txtBoxEmailUpd.Text,
+                maskdTxtBxPhoneUpd.Text, richTxtBxAddrUpd.Text);
+            MessageBox.Show("Successfully Updated", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            dataGridView1.Rows.Clear();
+            dataGridView1.Visible = true;
+            btnAdd.Visible = true;
+            btnDelete.Visible = true;
+            btnUpdate.Visible = true;
+            dataGridView1.Update();
+            var list = Containers.GetCustomerList();
+            foreach (var item in list)
+            {
+                string[] row = new string[]
+                {
+                    item.UniqueID.ToString(),
+                    item.FirstName,
+                    item.LastName,
+                    item.Contact,
+                    item.Email,
+                    item.Address
+                };
+                dataGridView1.Rows.Add(row);
+            }
+        }
+
+        private void btnCanXUpd_Click(object sender, EventArgs e)
+        {
+            pnlUpdate.Visible = false;
         }
     }
+
 }
 
 

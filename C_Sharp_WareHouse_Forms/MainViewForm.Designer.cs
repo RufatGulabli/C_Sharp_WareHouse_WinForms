@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,10 +68,24 @@
             this.clmContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl5Upd = new System.Windows.Forms.Label();
+            this.lbl4Upd = new System.Windows.Forms.Label();
+            this.lbl3Upd = new System.Windows.Forms.Label();
+            this.lbl2Upd = new System.Windows.Forms.Label();
+            this.lbl1Upd = new System.Windows.Forms.Label();
+            this.richTxtBxAddrUpd = new System.Windows.Forms.RichTextBox();
+            this.maskdTxtBxPhoneUpd = new System.Windows.Forms.MaskedTextBox();
+            this.txtBoxEmailUpd = new System.Windows.Forms.TextBox();
+            this.txtBxSurnameUpd = new System.Windows.Forms.TextBox();
+            this.txtBxNameUpd = new System.Windows.Forms.TextBox();
+            this.btnCanXUpd = new System.Windows.Forms.Button();
+            this.btnSaveUpd = new System.Windows.Forms.Button();
+            this.pnlUpdate = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pnlUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -84,7 +98,7 @@
             this.orderToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(811, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(966, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -202,7 +216,7 @@
             this.panel1.Controls.Add(this.textBxOldPass);
             this.panel1.Controls.Add(this.textBxNewUsernm);
             this.panel1.Controls.Add(this.textBxOldUserNm);
-            this.panel1.Location = new System.Drawing.Point(746, 360);
+            this.panel1.Location = new System.Drawing.Point(613, 339);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(401, 247);
             this.panel1.TabIndex = 1;
@@ -322,9 +336,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 386);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 562);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(811, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(966, 24);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -345,7 +359,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Location = new System.Drawing.Point(13, 256);
+            this.btnAdd.Location = new System.Drawing.Point(0, 346);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(162, 31);
@@ -362,7 +376,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDelete.Location = new System.Drawing.Point(13, 295);
+            this.btnDelete.Location = new System.Drawing.Point(212, 346);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(162, 31);
@@ -379,7 +393,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.Location = new System.Drawing.Point(13, 334);
+            this.btnUpdate.Location = new System.Drawing.Point(422, 346);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(162, 31);
@@ -387,6 +401,7 @@
             this.btnUpdate.Text = "Update Customer";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dataGridView1
             // 
@@ -395,14 +410,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -411,18 +427,19 @@
             this.clmContact,
             this.clmEmail,
             this.Column2});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(811, 221);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(966, 296);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.Visible = false;
             // 
@@ -457,12 +474,167 @@
             this.Column2.HeaderText = "Address";
             this.Column2.Name = "Column2";
             // 
+            // lbl5Upd
+            // 
+            this.lbl5Upd.AutoSize = true;
+            this.lbl5Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl5Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl5Upd.Location = new System.Drawing.Point(304, 7);
+            this.lbl5Upd.Name = "lbl5Upd";
+            this.lbl5Upd.Size = new System.Drawing.Size(58, 18);
+            this.lbl5Upd.TabIndex = 14;
+            this.lbl5Upd.Text = "Address";
+            // 
+            // lbl4Upd
+            // 
+            this.lbl4Upd.AutoSize = true;
+            this.lbl4Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl4Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl4Upd.Location = new System.Drawing.Point(2, 121);
+            this.lbl4Upd.Name = "lbl4Upd";
+            this.lbl4Upd.Size = new System.Drawing.Size(102, 18);
+            this.lbl4Upd.TabIndex = 15;
+            this.lbl4Upd.Text = "Phone Number";
+            // 
+            // lbl3Upd
+            // 
+            this.lbl3Upd.AutoSize = true;
+            this.lbl3Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl3Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl3Upd.Location = new System.Drawing.Point(62, 87);
+            this.lbl3Upd.Name = "lbl3Upd";
+            this.lbl3Upd.Size = new System.Drawing.Size(42, 18);
+            this.lbl3Upd.TabIndex = 16;
+            this.lbl3Upd.Text = "Email";
+            // 
+            // lbl2Upd
+            // 
+            this.lbl2Upd.AutoSize = true;
+            this.lbl2Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl2Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl2Upd.Location = new System.Drawing.Point(41, 48);
+            this.lbl2Upd.Name = "lbl2Upd";
+            this.lbl2Upd.Size = new System.Drawing.Size(63, 18);
+            this.lbl2Upd.TabIndex = 17;
+            this.lbl2Upd.Text = "Surname";
+            // 
+            // lbl1Upd
+            // 
+            this.lbl1Upd.AutoSize = true;
+            this.lbl1Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl1Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl1Upd.Location = new System.Drawing.Point(59, 12);
+            this.lbl1Upd.Name = "lbl1Upd";
+            this.lbl1Upd.Size = new System.Drawing.Size(45, 18);
+            this.lbl1Upd.TabIndex = 10;
+            this.lbl1Upd.Text = "Name";
+            // 
+            // richTxtBxAddrUpd
+            // 
+            this.richTxtBxAddrUpd.BackColor = System.Drawing.Color.Cornsilk;
+            this.richTxtBxAddrUpd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTxtBxAddrUpd.Location = new System.Drawing.Point(368, 4);
+            this.richTxtBxAddrUpd.Name = "richTxtBxAddrUpd";
+            this.richTxtBxAddrUpd.Size = new System.Drawing.Size(189, 96);
+            this.richTxtBxAddrUpd.TabIndex = 19;
+            this.richTxtBxAddrUpd.Text = "";
+            // 
+            // maskdTxtBxPhoneUpd
+            // 
+            this.maskdTxtBxPhoneUpd.BackColor = System.Drawing.Color.Cornsilk;
+            this.maskdTxtBxPhoneUpd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskdTxtBxPhoneUpd.Location = new System.Drawing.Point(110, 118);
+            this.maskdTxtBxPhoneUpd.Mask = "(+99900) 000-00-00";
+            this.maskdTxtBxPhoneUpd.Name = "maskdTxtBxPhoneUpd";
+            this.maskdTxtBxPhoneUpd.Size = new System.Drawing.Size(189, 26);
+            this.maskdTxtBxPhoneUpd.TabIndex = 18;
+            // 
+            // txtBoxEmailUpd
+            // 
+            this.txtBoxEmailUpd.BackColor = System.Drawing.Color.Cornsilk;
+            this.txtBoxEmailUpd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBoxEmailUpd.Location = new System.Drawing.Point(110, 84);
+            this.txtBoxEmailUpd.Name = "txtBoxEmailUpd";
+            this.txtBoxEmailUpd.Size = new System.Drawing.Size(189, 26);
+            this.txtBoxEmailUpd.TabIndex = 13;
+            // 
+            // txtBxSurnameUpd
+            // 
+            this.txtBxSurnameUpd.BackColor = System.Drawing.Color.Cornsilk;
+            this.txtBxSurnameUpd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBxSurnameUpd.Location = new System.Drawing.Point(110, 45);
+            this.txtBxSurnameUpd.Name = "txtBxSurnameUpd";
+            this.txtBxSurnameUpd.Size = new System.Drawing.Size(189, 26);
+            this.txtBxSurnameUpd.TabIndex = 12;
+            // 
+            // txtBxNameUpd
+            // 
+            this.txtBxNameUpd.BackColor = System.Drawing.Color.Cornsilk;
+            this.txtBxNameUpd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBxNameUpd.Location = new System.Drawing.Point(110, 4);
+            this.txtBxNameUpd.Name = "txtBxNameUpd";
+            this.txtBxNameUpd.Size = new System.Drawing.Size(189, 26);
+            this.txtBxNameUpd.TabIndex = 11;
+            // 
+            // btnCanXUpd
+            // 
+            this.btnCanXUpd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCanXUpd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCanXUpd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCanXUpd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCanXUpd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCanXUpd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCanXUpd.Location = new System.Drawing.Point(463, 118);
+            this.btnCanXUpd.Name = "btnCanXUpd";
+            this.btnCanXUpd.Size = new System.Drawing.Size(94, 26);
+            this.btnCanXUpd.TabIndex = 21;
+            this.btnCanXUpd.Text = "Cancel";
+            this.btnCanXUpd.UseVisualStyleBackColor = false;
+            this.btnCanXUpd.Click += new System.EventHandler(this.btnCanXUpd_Click);
+            // 
+            // btnSaveUpd
+            // 
+            this.btnSaveUpd.BackColor = System.Drawing.Color.Green;
+            this.btnSaveUpd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveUpd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSaveUpd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveUpd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSaveUpd.Location = new System.Drawing.Point(342, 118);
+            this.btnSaveUpd.Name = "btnSaveUpd";
+            this.btnSaveUpd.Size = new System.Drawing.Size(94, 27);
+            this.btnSaveUpd.TabIndex = 20;
+            this.btnSaveUpd.Text = "Save";
+            this.btnSaveUpd.UseVisualStyleBackColor = false;
+            this.btnSaveUpd.Click += new System.EventHandler(this.btnSaveUpd_Click);
+            // 
+            // pnlUpdate
+            // 
+            this.pnlUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.pnlUpdate.Controls.Add(this.btnCanXUpd);
+            this.pnlUpdate.Controls.Add(this.txtBxNameUpd);
+            this.pnlUpdate.Controls.Add(this.btnSaveUpd);
+            this.pnlUpdate.Controls.Add(this.txtBxSurnameUpd);
+            this.pnlUpdate.Controls.Add(this.lbl5Upd);
+            this.pnlUpdate.Controls.Add(this.txtBoxEmailUpd);
+            this.pnlUpdate.Controls.Add(this.lbl4Upd);
+            this.pnlUpdate.Controls.Add(this.maskdTxtBxPhoneUpd);
+            this.pnlUpdate.Controls.Add(this.lbl3Upd);
+            this.pnlUpdate.Controls.Add(this.richTxtBxAddrUpd);
+            this.pnlUpdate.Controls.Add(this.lbl2Upd);
+            this.pnlUpdate.Controls.Add(this.lbl1Upd);
+            this.pnlUpdate.Location = new System.Drawing.Point(12, 394);
+            this.pnlUpdate.Name = "pnlUpdate";
+            this.pnlUpdate.Size = new System.Drawing.Size(572, 165);
+            this.pnlUpdate.TabIndex = 22;
+            this.pnlUpdate.Visible = false;
+            // 
             // MainViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(811, 410);
+            this.ClientSize = new System.Drawing.Size(966, 586);
+            this.Controls.Add(this.pnlUpdate);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
@@ -473,6 +645,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainViewForm";
             this.Text = "MainViewForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainViewForm_FormClosed1);
             this.Load += new System.EventHandler(this.MainViewForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -481,6 +654,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.pnlUpdate.ResumeLayout(false);
+            this.pnlUpdate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,5 +701,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmContact;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Label lbl5Upd;
+        private System.Windows.Forms.Label lbl4Upd;
+        private System.Windows.Forms.Label lbl3Upd;
+        private System.Windows.Forms.Label lbl2Upd;
+        private System.Windows.Forms.Label lbl1Upd;
+        private System.Windows.Forms.RichTextBox richTxtBxAddrUpd;
+        private System.Windows.Forms.MaskedTextBox maskdTxtBxPhoneUpd;
+        private System.Windows.Forms.TextBox txtBoxEmailUpd;
+        private System.Windows.Forms.TextBox txtBxSurnameUpd;
+        private System.Windows.Forms.TextBox txtBxNameUpd;
+        private System.Windows.Forms.Button btnCanXUpd;
+        private System.Windows.Forms.Button btnSaveUpd;
+        private System.Windows.Forms.Panel pnlUpdate;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace C_Sharp_WareHouse_Forms
 {
@@ -47,7 +48,17 @@ namespace C_Sharp_WareHouse_Forms
             Contact = phone;
             Address = addr;
         }
+
+        public void Update(string name, string surname, string email, string contact, string address)
+        {
+            FirstName = name;
+            LastName = surname;
+            Email = email;
+            Contact = contact;
+            Address = address;
+        }
     }
+
 
     public class Order
     {

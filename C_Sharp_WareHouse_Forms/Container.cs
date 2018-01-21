@@ -8,6 +8,7 @@ namespace C_Sharp_WareHouse_Forms
 {
     public static class Containers
     {
+        
         public static List<Product> ProductList = new List<Product>();
         public static List<Customer> CustomerList = new List<Customer>();
         public static List<Order> OrderList = new List<Order>();
@@ -72,8 +73,16 @@ namespace C_Sharp_WareHouse_Forms
 
         public static void DeleteCustomer(int id)
         {
-            Customer customer = (Customer)CustomerList.Where(item => item.UniqueID == id);
+            Customer customer = CustomerList.Find(item => item.UniqueID == id);
             CustomerList.Remove(customer);
+        }
+
+        public static void UpdateCustomer(int index, string name, string surname, string email,
+            string phone, string address)
+        {
+            Customer customer = CustomerList.Find(item => item.UniqueID == index);
+            customer.Update(name, surname, email, phone, address);
+            return;
         }
     }
 
