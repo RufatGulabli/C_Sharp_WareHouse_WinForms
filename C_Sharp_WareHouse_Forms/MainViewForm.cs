@@ -25,11 +25,16 @@ namespace C_Sharp_WareHouse_Forms
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loginForm.Close();
+            SaveLoadtoFile.SaveCustomerstoXml();
             this.Close();
         }
 
         private void MainViewForm_Load(object sender, EventArgs e)
         {
+            SaveLoadtoFile.LoadCustomersFromXML();
+            Product.IDCounter = Containers.GetLastProductID();
+            Customer.IDCounter = Containers.GetLastCustomerID();
+            Order.IDCounter = Containers.GetLastOrderID();
             loginForm = new Form1();
             loginForm.FormClosed += LoginForm_FormClosed;
             loginForm.ShowDialog();
@@ -132,22 +137,44 @@ namespace C_Sharp_WareHouse_Forms
 
         private void listOfCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listViewCustomers.Visible = true;
+            dataGridView1.Visible = true;
             btnAdd.Visible = true;
             btnDelete.Visible = true;
             btnUpdate.Visible = true;
-            listViewCustomers.Items.Clear();
+            dataGridView1.Update();
             var list = Containers.GetCustomerList();
             foreach (var item in list)
             {
-                ListViewItem rows = new ListViewItem(item.UniqueID.ToString());
-                rows.SubItems.Add(item.FirstName);
-                rows.SubItems.Add(item.LastName);
-                rows.SubItems.Add(item.Email);
-                rows.SubItems.Add(item.Contact);
-                rows.SubItems.Add(item.Address);
-                listViewCustomers.Items.Add(rows);
+                string[] row = new string[]
+                {
+                    item.UniqueID.ToString(),
+                    item.FirstName,
+                    item.LastName,
+                    item.Contact,
+                    item.Email,
+                    item.Address
+                };
+                dataGridView1.Rows.Add(row);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (addingCustomerForm == null)
+            {
+                addingCustomerForm = new CustomerAdding();
+                addingCustomerForm.StartPosition = FormStartPosition.CenterParent;
+                addingCustomerForm.FormClosed += AddingCustomerForm_FormClosed;
+                addingCustomerForm.ShowDialog();
+            }
+            else
+                addingCustomerForm.Activate();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            MessageBox.Show(id.ToString());
         }
     }
 }

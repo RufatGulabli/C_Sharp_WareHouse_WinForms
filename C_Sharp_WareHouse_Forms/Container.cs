@@ -8,9 +8,9 @@ namespace C_Sharp_WareHouse_Forms
 {
     public static class Containers
     {
-        static List<Product> ProductList = new List<Product>();
-        static List<Customer> CustomerList = new List<Customer>();
-        static List<Order> OrderList = new List<Order>();
+        public static List<Product> ProductList = new List<Product>();
+        public static List<Customer> CustomerList = new List<Customer>();
+        public static List<Order> OrderList = new List<Order>();
 
         public static void CreateProduct(string articleName, decimal price, int quantity, string desc)
         {
@@ -36,6 +36,45 @@ namespace C_Sharp_WareHouse_Forms
         public static List<Product> GetProductList() => ProductList;
         public static List<Customer> GetCustomerList() => CustomerList;
         public static List<Order> GetOrderList() => OrderList;
+
+        public static int GetLastCustomerID()
+        {
+            if (CustomerList.Count == 0)
+                return 0;
+            else
+            {
+                int i = CustomerList[CustomerList.Count - 1].UniqueID;
+                return i;
+            }
+        }
+
+        public static int GetLastProductID()
+        {
+            if (ProductList.Count == 0)
+                return 0;
+            else
+            {
+                int i = ProductList[ProductList.Count - 1].UniqueID;
+                return i;
+            }
+        }
+
+        public static int GetLastOrderID()
+        {
+            if (OrderList.Count == 0)
+                return 0;
+            else
+            {
+                int i = OrderList[OrderList.Count - 1].UniqueID;
+                return i;
+            }
+        }
+
+        public static void DeleteCustomer(int id)
+        {
+            Customer customer = (Customer)CustomerList.Where(item => item.UniqueID == id);
+            CustomerList.Remove(customer);
+        }
     }
 
 }

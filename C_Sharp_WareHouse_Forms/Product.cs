@@ -9,7 +9,7 @@ namespace C_Sharp_WareHouse_Forms
 
     public class Product
     {
-        static int IDCounter = 0;
+        public static int IDCounter = 0;
         public int UniqueID { get; set; }
         public string ArticleName { get; set; }
         public decimal Price { get; set; }
@@ -25,11 +25,12 @@ namespace C_Sharp_WareHouse_Forms
             Quantity = quantity;
             Description = descrptn;
         }
+
     }
 
     public class Customer
     {
-        static int IDCounter = 0;
+        public static int IDCounter = 0;
         public int UniqueID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -50,7 +51,7 @@ namespace C_Sharp_WareHouse_Forms
 
     public class Order
     {
-        static int IDCounet = 0;
+        public static int IDCounter = 0;
         public int UniqueID { get; set; }
         public Customer Client { get; set; }
         public Product Product { get; set; }
@@ -60,7 +61,7 @@ namespace C_Sharp_WareHouse_Forms
         public Order() {}
         public Order(Customer client, Product prod, int quantity, DateTime date)
         {
-            UniqueID = ++IDCounet;
+            UniqueID = ++IDCounter;
             Client = client;
             Product = prod;
             Quantity = quantity;
