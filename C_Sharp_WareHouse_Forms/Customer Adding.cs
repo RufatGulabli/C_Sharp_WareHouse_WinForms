@@ -20,11 +20,6 @@ namespace C_Sharp_WareHouse_Forms
             container = cont;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -51,6 +46,16 @@ namespace C_Sharp_WareHouse_Forms
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CustomerAdding_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Close();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

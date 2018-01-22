@@ -141,16 +141,20 @@ namespace C_Sharp_WareHouse_Forms
         {
             if (customerDataGridForm == null)
             {
-                customerDataGridForm = new CustomerDataGridView(containers, addingCustomerForm);
+                customerDataGridForm = new CustomerDataGridView(containers);
                 customerDataGridForm.StartPosition = FormStartPosition.CenterParent;
                 customerDataGridForm.MdiParent = this;
-                customerDataGridForm.FormClosed += AddingProductForm_FormClosed;
+                customerDataGridForm.FormClosed += CustomerDataGridForm_FormClosed1; ;
                 customerDataGridForm.Show();
             }
             else
                 customerDataGridForm.Activate();
         }
 
+        private void CustomerDataGridForm_FormClosed1(object sender, FormClosedEventArgs e)
+        {
+            customerDataGridForm = null;
+        }
     }
 
 }

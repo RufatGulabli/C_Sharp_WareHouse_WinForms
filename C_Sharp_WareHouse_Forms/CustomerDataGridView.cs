@@ -15,11 +15,10 @@ namespace C_Sharp_WareHouse_Forms
         Containers containers;
         CustomerAdding CustomerAddingForm;
 
-        public CustomerDataGridView(Containers cont, CustomerAdding customerAddingForm)
+        public CustomerDataGridView(Containers cont)
         {
             InitializeComponent();
             containers = cont;
-            CustomerAddingForm = customerAddingForm;
             containers.ListUpdate += UpdateDataGrid;
         }
 
@@ -38,7 +37,7 @@ namespace C_Sharp_WareHouse_Forms
 
         private void CustomerAddingForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Close();
+            CustomerAddingForm = null;
         }
 
         private void CustomerDataGridView_Load(object sender, EventArgs e)
