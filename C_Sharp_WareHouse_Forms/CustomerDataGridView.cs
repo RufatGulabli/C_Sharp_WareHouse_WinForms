@@ -20,6 +20,7 @@ namespace C_Sharp_WareHouse_Forms
             InitializeComponent();
             containers = cont;
             containers.ListUpdate += UpdateDataGrid;
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -42,6 +43,7 @@ namespace C_Sharp_WareHouse_Forms
 
         private void CustomerDataGridView_Load(object sender, EventArgs e)
         {
+            
             dataGridView1.Rows.Clear();
             var list = Containers.GetCustomerList();
             foreach (var item in list)
@@ -118,7 +120,7 @@ namespace C_Sharp_WareHouse_Forms
 
         private void CustomerDataGridView_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Close();
+            Dispose();
         }
     }
 }

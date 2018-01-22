@@ -338,6 +338,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainViewForm";
             this.Text = "MainViewForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainViewForm_FormClosed1);
             this.Load += new System.EventHandler(this.MainViewForm_Load);
             this.menuStrip1.ResumeLayout(false);
