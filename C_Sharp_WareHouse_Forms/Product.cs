@@ -7,10 +7,12 @@ using System.Xml.Serialization;
 
 namespace C_Sharp_WareHouse_Forms
 {
-
+    [XmlRoot(ElementName = "Product", Namespace = "Product")]
     public class Product
     {
+        [XmlIgnore]
         public static int IDCounter = 0;
+
         public int UniqueID { get; set; }
         public string ArticleName { get; set; }
         public decimal Price { get; set; }
@@ -29,6 +31,7 @@ namespace C_Sharp_WareHouse_Forms
 
     }
 
+    [XmlRoot(ElementName = "Customer", Namespace = "Customer")]
     public class Customer
     {
         public static int IDCounter = 0;

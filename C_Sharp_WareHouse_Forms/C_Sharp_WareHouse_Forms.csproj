@@ -52,6 +52,12 @@
     <Compile Include="Customer Adding.Designer.cs">
       <DependentUpon>Customer Adding.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerDataGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerDataGridView.Designer.cs">
+      <DependentUpon>CustomerDataGridView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     <Compile Include="SaveLoadtoFile.cs" />
     <EmbeddedResource Include="Customer Adding.resx">
       <DependentUpon>Customer Adding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerDataGridView.resx">
+      <DependentUpon>CustomerDataGridView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

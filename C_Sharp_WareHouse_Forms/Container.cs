@@ -6,32 +6,49 @@ using System.Threading.Tasks;
 
 namespace C_Sharp_WareHouse_Forms
 {
-    public static class Containers
+    public class Containers
     {
         
         public static List<Product> ProductList = new List<Product>();
         public static List<Customer> CustomerList = new List<Customer>();
         public static List<Order> OrderList = new List<Order>();
+        public delegate void GridViewUpdate();
+        public event GridViewUpdate ListUpdate;
 
-        public static void CreateProduct(string articleName, decimal price, int quantity, string desc)
+        public void AddCustomer(Customer cust)
         {
-            Product prod = new Product(articleName,price,quantity,desc);
-            ProductList.Add(prod);
-            return;
+            CustomerList.Add(cust);
+            ListUpdate?.Invoke();
         }
 
-        public static void CreateCustomer(string firstName, string lastName, string email, string contact, string address)
+        public void DeleteCustomer(int id)
         {
-            Customer customer = new Customer(firstName, lastName, email, contact, address);
-            CustomerList.Add(customer);
-            return;
+            CustomerList.RemoveAll(x => x.UniqueID == id);
+            ListUpdate?.Invoke();
         }
 
-        public static void CreateOrder(Customer customer, Product prod, int quantity, DateTime date)
+        public void AddProduct(Product product)
         {
-            Order newOrder = new Order(customer, prod, quantity, date);
-            OrderList.Add(newOrder);
-            return;
+            ProductList.Add(product);
+            ListUpdate?.Invoke();
+        }
+
+        public void DeleteProduct(int id)
+        {
+            ProductList.RemoveAll(x => x.UniqueID == id);
+            ListUpdate?.Invoke();
+        }
+
+        public void AddOrder(Order order)
+        {
+            OrderList.Add(order);
+            ListUpdate?.Invoke();
+        }
+
+        public void DeleteOrder(int id)
+        {
+            OrderList.RemoveAll(x => x.UniqueID == id);
+            ListUpdate?.Invoke();
         }
 
         public static List<Product> GetProductList() => ProductList;
@@ -71,19 +88,17 @@ namespace C_Sharp_WareHouse_Forms
             }
         }
 
-        public static void DeleteCustomer(int id)
-        {
-            Customer customer = CustomerList.Find(item => item.UniqueID == id);
-            CustomerList.Remove(customer);
-        }
-
-        public static void UpdateCustomer(int index, string name, string surname, string email,
+        public void UpdateCustomer(int index, string name, string surname, string email,
             string phone, string address)
         {
+            if (index < 0) return;
             Customer customer = CustomerList.Find(item => item.UniqueID == index);
             customer.Update(name, surname, email, phone, address);
+            ListUpdate?.Invoke();
             return;
         }
+
+ 
     }
 
 }

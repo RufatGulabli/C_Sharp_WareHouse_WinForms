@@ -13,9 +13,12 @@ namespace C_Sharp_WareHouse_Forms
 {
     public partial class ProductAdding : Form
     {
-        public ProductAdding()
+        Containers container;
+
+        public ProductAdding(Containers cont)
         {
             InitializeComponent();
+            container = cont;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,7 +36,8 @@ namespace C_Sharp_WareHouse_Forms
                     throw new Exception("Quantity can not be 0 (zero)");
                 if (numrcUpDwnPrice.Value == 0)
                     throw new Exception("Price has not been set");
-                Containers.CreateProduct(textBxPrdNm.Text, numrcUpDwnPrice.Value, (int)numricUpDownQuan.Value, richTextBoxDesc.Text);
+                Product prod = new Product(textBxPrdNm.Text, numrcUpDwnPrice.Value, (int)numricUpDownQuan.Value, richTextBoxDesc.Text);
+                container.AddProduct(prod);
                 MessageBox.Show("Successfully Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();        
                 return;

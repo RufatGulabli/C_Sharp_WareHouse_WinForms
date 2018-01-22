@@ -16,6 +16,8 @@ namespace C_Sharp_WareHouse_Forms
         ProductAdding addingProductForm = null;
         CustomerAdding addingCustomerForm = null;
         OrderAdding addingOrderForm = null;
+        Containers containers = new Containers();
+        CustomerDataGridView customerDataGridForm = null;
 
         public MainViewForm()
         {
@@ -25,7 +27,6 @@ namespace C_Sharp_WareHouse_Forms
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loginForm.Close();
-            //SaveLoadtoFile.SaveCustomerstoXml();
             this.Close();
         }
 
@@ -76,20 +77,16 @@ namespace C_Sharp_WareHouse_Forms
                 panel1.Visible = false;
             }
             else if(panel1.Controls.OfType<TextBox>().Any(x => string.IsNullOrEmpty(x.Text)))
-            {
                 MessageBox.Show("Please Fill All Details", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            }
             else
-            {
                 MessageBox.Show("Old Credentials are wrong!!!","ERROR",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
-            }
         }
 
         private void addNewProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (addingProductForm == null)
             {
-                addingProductForm = new ProductAdding();
+                addingProductForm = new ProductAdding(containers);
                 addingProductForm.StartPosition = FormStartPosition.CenterParent;
                 addingProductForm.FormClosed += AddingProductForm_FormClosed;
                 addingProductForm.ShowDialog();
@@ -108,7 +105,7 @@ namespace C_Sharp_WareHouse_Forms
         {
             if(addingCustomerForm == null)
             {
-                addingCustomerForm = new CustomerAdding();
+                addingCustomerForm = new CustomerAdding(containers);
                 addingCustomerForm.StartPosition = FormStartPosition.CenterParent;
                 addingCustomerForm.FormClosed += AddingCustomerForm_FormClosed;
                 addingCustomerForm.ShowDialog();
@@ -142,135 +139,18 @@ namespace C_Sharp_WareHouse_Forms
 
         private void listOfCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Visible = true;
-            btnAdd.Visible = true;
-            btnDelete.Visible = true;
-            btnUpdate.Visible = true;
-            dataGridView1.Update();
-            var list = Containers.GetCustomerList();
-            foreach (var item in list)
+            if (customerDataGridForm == null)
             {
-                string[] row = new string[]
-                {
-                    item.UniqueID.ToString(),
-                    item.FirstName,
-                    item.LastName,
-                    item.Contact,
-                    item.Email,
-                    item.Address
-                };
-                dataGridView1.Rows.Add(row);
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (addingCustomerForm == null)
-            {
-                addingCustomerForm = new CustomerAdding();
-                addingCustomerForm.StartPosition = FormStartPosition.CenterParent;
-                addingCustomerForm.FormClosed += AddingCustomerForm_FormClosed;
-                addingCustomerForm.ShowDialog();
+                customerDataGridForm = new CustomerDataGridView(containers, addingCustomerForm);
+                customerDataGridForm.StartPosition = FormStartPosition.CenterParent;
+                customerDataGridForm.MdiParent = this;
+                customerDataGridForm.FormClosed += AddingProductForm_FormClosed;
+                customerDataGridForm.Show();
             }
             else
-                addingCustomerForm.Activate();
-            dataGridView1.Rows.Clear();
-            dataGridView1.Visible = true;
-            btnAdd.Visible = true;
-            btnDelete.Visible = true;
-            btnUpdate.Visible = true;
-            dataGridView1.Update();
-            var list = Containers.GetCustomerList();
-            foreach (var item in list)
-            {
-                string[] row = new string[]
-                {
-                    item.UniqueID.ToString(),
-                    item.FirstName,
-                    item.LastName,
-                    item.Contact,
-                    item.Email,
-                    item.Address
-                };
-                dataGridView1.Rows.Add(row);
-            }
+                customerDataGridForm.Activate();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            if(MessageBox.Show("Are you sure to remove selected item?","Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                Containers.DeleteCustomer(id);
-                MessageBox.Show("Removed","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-            dataGridView1.Rows.Clear();
-            dataGridView1.Visible = true;
-            btnAdd.Visible = true;
-            btnDelete.Visible = true;
-            btnUpdate.Visible = true;
-            dataGridView1.Update();
-            var list = Containers.GetCustomerList();
-            foreach (var item in list)
-            {
-                string[] row = new string[]
-                {
-                    item.UniqueID.ToString(),
-                    item.FirstName,
-                    item.LastName,
-                    item.Contact,
-                    item.Email,
-                    item.Address
-                };
-                dataGridView1.Rows.Add(row);
-            }
-            return;
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            pnlUpdate.Visible = true;
-            
-            txtBxNameUpd.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txtBxSurnameUpd.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            txtBoxEmailUpd.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            maskdTxtBxPhoneUpd.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            richTxtBxAddrUpd.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-        }
-
-        private void btnSaveUpd_Click(object sender, EventArgs e)
-        {
-            int index = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            Containers.UpdateCustomer(index, txtBxNameUpd.Text, txtBxSurnameUpd.Text, txtBoxEmailUpd.Text,
-                maskdTxtBxPhoneUpd.Text, richTxtBxAddrUpd.Text);
-            MessageBox.Show("Successfully Updated", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            dataGridView1.Rows.Clear();
-            dataGridView1.Visible = true;
-            btnAdd.Visible = true;
-            btnDelete.Visible = true;
-            btnUpdate.Visible = true;
-            dataGridView1.Update();
-            var list = Containers.GetCustomerList();
-            foreach (var item in list)
-            {
-                string[] row = new string[]
-                {
-                    item.UniqueID.ToString(),
-                    item.FirstName,
-                    item.LastName,
-                    item.Contact,
-                    item.Email,
-                    item.Address
-                };
-                dataGridView1.Rows.Add(row);
-            }
-        }
-
-        private void btnCanXUpd_Click(object sender, EventArgs e)
-        {
-            pnlUpdate.Visible = false;
-        }
     }
 
 }

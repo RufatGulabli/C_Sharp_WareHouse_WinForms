@@ -13,9 +13,11 @@ namespace C_Sharp_WareHouse_Forms
 {
     public partial class CustomerAdding : Form
     {
-        public CustomerAdding()
+        Containers container ;
+        public CustomerAdding(Containers cont)
         {
             InitializeComponent();
+            container = cont;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,9 +41,10 @@ namespace C_Sharp_WareHouse_Forms
                     throw new Exception("Name or Surname can not contain any Numbers");
                 if (!maskdTxtBxPhone.MaskCompleted)
                     throw new Exception("Please fill Contact Deatils");
-                Containers.CreateCustomer(txtBxName.Text, txtBxSurname.Text, txtBoxEmail.Text, maskdTxtBxPhone.Text, richTxtBxAddr.Text);
+                Customer cust = new Customer(txtBxName.Text, txtBxSurname.Text, txtBoxEmail.Text, maskdTxtBxPhone.Text, richTxtBxAddr.Text);
+                container.AddCustomer(cust);
                 MessageBox.Show("Successfully Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                this.Close();
                 return;
             }
             catch (Exception ex)
