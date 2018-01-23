@@ -126,6 +126,7 @@
             this.allProductsToolStripMenuItem.Name = "allProductsToolStripMenuItem";
             this.allProductsToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.allProductsToolStripMenuItem.Text = "All Products";
+            this.allProductsToolStripMenuItem.Click += new System.EventHandler(this.allProductsToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 

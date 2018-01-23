@@ -18,6 +18,7 @@ namespace C_Sharp_WareHouse_Forms
         OrderAdding addingOrderForm = null;
         Containers containers = new Containers();
         CustomerDataGridView customerDataGridForm = null;
+        ProductsDataGridtViewForm productsGridView = null;
 
         public MainViewForm()
         {
@@ -33,11 +34,13 @@ namespace C_Sharp_WareHouse_Forms
         private void MainViewForm_FormClosed1(object sender, FormClosedEventArgs e)
         {
             SaveLoadtoFile.SaveCustomerstoXml();
+            SaveLoadtoFile.SaveProductstoXml();
         }
 
         private void MainViewForm_Load(object sender, EventArgs e)
         {
             SaveLoadtoFile.LoadCustomersFromXML();
+            SaveLoadtoFile.LoadProductsFromXML();
             Product.IDCounter = Containers.GetLastProductID();
             Customer.IDCounter = Containers.GetLastCustomerID();
             Order.IDCounter = Containers.GetLastOrderID();
@@ -154,6 +157,25 @@ namespace C_Sharp_WareHouse_Forms
         private void CustomerDataGridForm_FormClosed1(object sender, FormClosedEventArgs e)
         {
             customerDataGridForm = null;
+        }
+
+        private void allProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (productsGridView == null)
+            {
+                productsGridView = new ProductsDataGridtViewForm(containers);
+                productsGridView.MdiParent = this;
+                productsGridView.StartPosition = FormStartPosition.CenterParent;
+                productsGridView.FormClosed += ProductsGridView_FormClosed;
+                productsGridView.Show();
+            }
+            else
+                productsGridView.Activate();
+        }
+
+        private void ProductsGridView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            productsGridView = null;
         }
     }
 

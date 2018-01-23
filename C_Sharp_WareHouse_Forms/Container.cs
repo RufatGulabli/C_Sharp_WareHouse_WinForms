@@ -12,43 +12,46 @@ namespace C_Sharp_WareHouse_Forms
         public static List<Product> ProductList = new List<Product>();
         public static List<Customer> CustomerList = new List<Customer>();
         public static List<Order> OrderList = new List<Order>();
-        public delegate void GridViewUpdate();
-        public event GridViewUpdate ListUpdate;
+        public delegate void CustomerListGridViewUpdate();
+        public event CustomerListGridViewUpdate CustomersUpdate;
+
+        public delegate void ProductListGridViewUpdate();
+        public event ProductListGridViewUpdate ProductsUpdate;
 
         public void AddCustomer(Customer cust)
         {
             CustomerList.Add(cust);
-            ListUpdate?.Invoke();
+            CustomersUpdate?.Invoke();
         }
 
         public void DeleteCustomer(int id)
         {
             CustomerList.RemoveAll(x => x.UniqueID == id);
-            ListUpdate?.Invoke();
+            CustomersUpdate?.Invoke();
         }
 
         public void AddProduct(Product product)
         {
             ProductList.Add(product);
-            ListUpdate?.Invoke();
+            ProductsUpdate?.Invoke();
         }
 
         public void DeleteProduct(int id)
         {
             ProductList.RemoveAll(x => x.UniqueID == id);
-            ListUpdate?.Invoke();
+            ProductsUpdate?.Invoke();
         }
 
         public void AddOrder(Order order)
         {
             OrderList.Add(order);
-            ListUpdate?.Invoke();
+
         }
 
         public void DeleteOrder(int id)
         {
             OrderList.RemoveAll(x => x.UniqueID == id);
-            ListUpdate?.Invoke();
+
         }
 
         public static List<Product> GetProductList() => ProductList;
@@ -94,7 +97,7 @@ namespace C_Sharp_WareHouse_Forms
             if (index < 0) return;
             Customer customer = CustomerList.Find(item => item.UniqueID == index);
             customer.Update(name, surname, email, phone, address);
-            ListUpdate?.Invoke();
+            CustomersUpdate?.Invoke();
             return;
         }
 

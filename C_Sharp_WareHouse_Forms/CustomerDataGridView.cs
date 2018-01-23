@@ -19,7 +19,7 @@ namespace C_Sharp_WareHouse_Forms
         {
             InitializeComponent();
             containers = cont;
-            containers.ListUpdate += UpdateDataGrid;
+            containers.CustomersUpdate += UpdateDataGrid;
             
         }
 
@@ -121,6 +121,12 @@ namespace C_Sharp_WareHouse_Forms
         private void CustomerDataGridView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Dispose();
+        }
+
+        private void btnCanXUpd_Click(object sender, EventArgs e)
+        {
+            pnlUpdate.Visible = false;
+            dataGridView1.Enabled = true;
         }
     }
 }
