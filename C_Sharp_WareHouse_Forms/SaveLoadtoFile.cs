@@ -12,7 +12,7 @@ namespace C_Sharp_WareHouse_Forms
     {
         public static void SaveCustomerstoXml()
         {
-            var list = Containers.GetCustomerList();
+            var list = Containers.CustomerList;
             XmlSerializer serialize = new XmlSerializer(typeof(List<Customer>));
             using (FileStream file = new FileStream("Customers.xml", FileMode.OpenOrCreate))
             {
@@ -33,7 +33,7 @@ namespace C_Sharp_WareHouse_Forms
 
         public static void SaveProductstoXml()
         {
-            var list = Containers.GetProductList();
+            var list = Containers.ProductList;
             XmlSerializer serialize = new XmlSerializer(typeof(List<Product>));
             using (FileStream file = new FileStream("Products.xml", FileMode.OpenOrCreate))
             {
@@ -51,7 +51,6 @@ namespace C_Sharp_WareHouse_Forms
                 Containers.ProductList = (List<Product>)deserializer.Deserialize(file);
             }
         }
-
 
     }
 }

@@ -30,11 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlSearch = new System.Windows.Forms.Panel();
-            this.btnSearchPRD = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pnlUpdate = new System.Windows.Forms.Panel();
+            this.pnlUpdatePRD = new System.Windows.Forms.Panel();
             this.richTxtBxAddrUpd = new System.Windows.Forms.RichTextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numrcUpDwnPrice = new System.Windows.Forms.NumericUpDown();
@@ -50,82 +48,52 @@
             this.btnAddPRD = new System.Windows.Forms.Button();
             this.dataGridViewPRD = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlSearch.SuspendLayout();
-            this.pnlUpdate.SuspendLayout();
+            this.pnlUpdatePRD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numrcUpDwnPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPRD)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnlSearch
+            // textBoxSearch
             // 
-            this.pnlSearch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlSearch.Controls.Add(this.btnSearchPRD);
-            this.pnlSearch.Controls.Add(this.textBox3);
-            this.pnlSearch.Controls.Add(this.label5);
-            this.pnlSearch.Location = new System.Drawing.Point(194, 388);
-            this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(275, 92);
-            this.pnlSearch.TabIndex = 33;
-            // 
-            // btnSearchPRD
-            // 
-            this.btnSearchPRD.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnSearchPRD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearchPRD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSearchPRD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSearchPRD.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSearchPRD.Location = new System.Drawing.Point(74, 36);
-            this.btnSearchPRD.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearchPRD.Name = "btnSearchPRD";
-            this.btnSearchPRD.Size = new System.Drawing.Size(189, 47);
-            this.btnSearchPRD.TabIndex = 23;
-            this.btnSearchPRD.Text = "Search";
-            this.btnSearchPRD.UseVisualStyleBackColor = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.Cornsilk;
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(74, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(189, 26);
-            this.textBox3.TabIndex = 11;
+            this.textBoxSearch.BackColor = System.Drawing.Color.Cornsilk;
+            this.textBoxSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxSearch.Location = new System.Drawing.Point(317, 402);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(189, 26);
+            this.textBoxSearch.TabIndex = 11;
+            this.textBoxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_KeyUp);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(5, 5);
+            this.label5.Location = new System.Drawing.Point(248, 404);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 18);
+            this.label5.Size = new System.Drawing.Size(49, 18);
             this.label5.TabIndex = 10;
-            this.label5.Text = "By Name";
+            this.label5.Text = "Search";
             // 
-            // pnlUpdate
+            // pnlUpdatePRD
             // 
-            this.pnlUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.pnlUpdate.Controls.Add(this.richTxtBxAddrUpd);
-            this.pnlUpdate.Controls.Add(this.numericUpDown1);
-            this.pnlUpdate.Controls.Add(this.numrcUpDwnPrice);
-            this.pnlUpdate.Controls.Add(this.btnCanXUpd);
-            this.pnlUpdate.Controls.Add(this.txtBxNameUpd);
-            this.pnlUpdate.Controls.Add(this.btnSaveUpd);
-            this.pnlUpdate.Controls.Add(this.lbl4Upd);
-            this.pnlUpdate.Controls.Add(this.lbl3Upd);
-            this.pnlUpdate.Controls.Add(this.lbl2Upd);
-            this.pnlUpdate.Controls.Add(this.lbl1Upd);
-            this.pnlUpdate.Location = new System.Drawing.Point(667, 386);
-            this.pnlUpdate.Name = "pnlUpdate";
-            this.pnlUpdate.Size = new System.Drawing.Size(572, 171);
-            this.pnlUpdate.TabIndex = 32;
-            this.pnlUpdate.Visible = false;
+            this.pnlUpdatePRD.BackColor = System.Drawing.Color.Transparent;
+            this.pnlUpdatePRD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlUpdatePRD.Controls.Add(this.richTxtBxAddrUpd);
+            this.pnlUpdatePRD.Controls.Add(this.numericUpDown1);
+            this.pnlUpdatePRD.Controls.Add(this.numrcUpDwnPrice);
+            this.pnlUpdatePRD.Controls.Add(this.btnCanXUpd);
+            this.pnlUpdatePRD.Controls.Add(this.txtBxNameUpd);
+            this.pnlUpdatePRD.Controls.Add(this.btnSaveUpd);
+            this.pnlUpdatePRD.Controls.Add(this.lbl4Upd);
+            this.pnlUpdatePRD.Controls.Add(this.lbl3Upd);
+            this.pnlUpdatePRD.Controls.Add(this.lbl2Upd);
+            this.pnlUpdatePRD.Controls.Add(this.lbl1Upd);
+            this.pnlUpdatePRD.Location = new System.Drawing.Point(667, 386);
+            this.pnlUpdatePRD.Name = "pnlUpdatePRD";
+            this.pnlUpdatePRD.Size = new System.Drawing.Size(572, 171);
+            this.pnlUpdatePRD.TabIndex = 32;
+            this.pnlUpdatePRD.Visible = false;
             // 
             // richTxtBxAddrUpd
             // 
@@ -185,6 +153,7 @@
             this.btnCanXUpd.TabIndex = 21;
             this.btnCanXUpd.Text = "Cancel";
             this.btnCanXUpd.UseVisualStyleBackColor = false;
+            this.btnCanXUpd.Click += new System.EventHandler(this.btnCanXUpd_Click);
             // 
             // txtBxNameUpd
             // 
@@ -208,6 +177,7 @@
             this.btnSaveUpd.TabIndex = 20;
             this.btnSaveUpd.Text = "Save";
             this.btnSaveUpd.UseVisualStyleBackColor = false;
+            this.btnSaveUpd.Click += new System.EventHandler(this.btnSaveUpd_Click);
             // 
             // lbl4Upd
             // 
@@ -267,6 +237,7 @@
             this.btnUpdatePRD.TabIndex = 29;
             this.btnUpdatePRD.Text = "Update Product";
             this.btnUpdatePRD.UseVisualStyleBackColor = false;
+            this.btnUpdatePRD.Click += new System.EventHandler(this.btnUpdatePRD_Click);
             // 
             // btnDeletePRD
             // 
@@ -282,6 +253,7 @@
             this.btnDeletePRD.TabIndex = 30;
             this.btnDeletePRD.Text = "Delete Product";
             this.btnDeletePRD.UseVisualStyleBackColor = false;
+            this.btnDeletePRD.Click += new System.EventHandler(this.btnDeletePRD_Click);
             // 
             // btnAddPRD
             // 
@@ -316,12 +288,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewPRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewPRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.clmName,
-            this.clmContact,
-            this.clmEmail,
-            this.Column2});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -349,51 +315,24 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "LIST OF ALL PRODUCTS";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "No";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // clmName
-            // 
-            this.clmName.HeaderText = "Article Name";
-            this.clmName.Name = "clmName";
-            // 
-            // clmContact
-            // 
-            this.clmContact.HeaderText = "Price";
-            this.clmContact.Name = "clmContact";
-            // 
-            // clmEmail
-            // 
-            this.clmEmail.HeaderText = "Quantity";
-            this.clmEmail.Name = "clmEmail";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Description";
-            this.Column2.Name = "Column2";
-            // 
             // ProductsDataGridtViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1246, 564);
+            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewPRD);
-            this.Controls.Add(this.pnlSearch);
-            this.Controls.Add(this.pnlUpdate);
+            this.Controls.Add(this.pnlUpdatePRD);
             this.Controls.Add(this.btnUpdatePRD);
             this.Controls.Add(this.btnDeletePRD);
             this.Controls.Add(this.btnAddPRD);
             this.Name = "ProductsDataGridtViewForm";
             this.Text = "ProductsListViewForm";
             this.Load += new System.EventHandler(this.ProductsDataGridtViewForm_Load);
-            this.pnlSearch.ResumeLayout(false);
-            this.pnlSearch.PerformLayout();
-            this.pnlUpdate.ResumeLayout(false);
-            this.pnlUpdate.PerformLayout();
+            this.pnlUpdatePRD.ResumeLayout(false);
+            this.pnlUpdatePRD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numrcUpDwnPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPRD)).EndInit();
@@ -403,12 +342,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlSearch;
-        private System.Windows.Forms.Button btnSearchPRD;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel pnlUpdate;
+        private System.Windows.Forms.Panel pnlUpdatePRD;
         private System.Windows.Forms.Button btnCanXUpd;
         private System.Windows.Forms.TextBox txtBxNameUpd;
         private System.Windows.Forms.Button btnSaveUpd;
@@ -423,11 +359,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numrcUpDwnPrice;
         private System.Windows.Forms.RichTextBox richTxtBxAddrUpd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmContact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Label label1;
     }
 }

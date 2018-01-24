@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace C_Sharp_WareHouse_Forms
 {
-    [XmlRoot(ElementName = "Product", Namespace = "Product")]
+
     public class Product
     {
         [XmlIgnore]
@@ -29,18 +29,28 @@ namespace C_Sharp_WareHouse_Forms
             Description = descrptn;
         }
 
+        public void Update(string name, decimal price, int quantity, string descrptn)
+        {
+            ArticleName = name;
+            Price = price;
+            Quantity = quantity;
+            Description = descrptn;
+        }
     }
 
-    [XmlRoot(ElementName = "Customer", Namespace = "Customer")]
+
     public class Customer
     {
+        [XmlIgnore]
         public static int IDCounter = 0;
+
         public int UniqueID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Contact { get; set; }
         public string Address { get; set; }
+
         public Customer() {}
         public Customer(string name, string surname, string mail, string phone, string addr)
         {
@@ -51,7 +61,6 @@ namespace C_Sharp_WareHouse_Forms
             Contact = phone;
             Address = addr;
         }
-
         public void Update(string name, string surname, string email, string contact, string address)
         {
             FirstName = name;
@@ -65,6 +74,7 @@ namespace C_Sharp_WareHouse_Forms
 
     public class Order
     {
+        [XmlIgnore]
         public static int IDCounter = 0;
         public int UniqueID { get; set; }
         public Customer Client { get; set; }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace C_Sharp_WareHouse_Forms
 {
+
     public class Containers
     {
-        
         public static List<Product> ProductList = new List<Product>();
         public static List<Customer> CustomerList = new List<Customer>();
         public static List<Order> OrderList = new List<Order>();
@@ -26,7 +26,8 @@ namespace C_Sharp_WareHouse_Forms
 
         public void DeleteCustomer(int id)
         {
-            CustomerList.RemoveAll(x => x.UniqueID == id);
+            var customer = CustomerList.Find(item => item.UniqueID == id);
+            CustomerList.Remove(customer);
             CustomersUpdate?.Invoke();
         }
 
@@ -38,25 +39,21 @@ namespace C_Sharp_WareHouse_Forms
 
         public void DeleteProduct(int id)
         {
-            ProductList.RemoveAll(x => x.UniqueID == id);
+            var product = ProductList.Find(x => x.UniqueID == id);
+            ProductList.Remove(product);
             ProductsUpdate?.Invoke();
         }
 
         public void AddOrder(Order order)
         {
             OrderList.Add(order);
-
         }
 
         public void DeleteOrder(int id)
         {
-            OrderList.RemoveAll(x => x.UniqueID == id);
-
+            var order = OrderList.Find(item => item.UniqueID == id);
+            OrderList.Remove(order);
         }
-
-        public static List<Product> GetProductList() => ProductList;
-        public static List<Customer> GetCustomerList() => CustomerList;
-        public static List<Order> GetOrderList() => OrderList;
 
         public static int GetLastCustomerID()
         {
@@ -101,7 +98,17 @@ namespace C_Sharp_WareHouse_Forms
             return;
         }
 
- 
+        public void UpdateProduct(int index, string name, decimal price, int quantity,
+            string desc)
+        {
+            if (index < 0) return;
+            Product product = ProductList.Find(item => item.UniqueID == index);
+            product.Update(name, price, quantity,desc);
+            ProductsUpdate?.Invoke();
+            return;
+        }
+
+
     }
 
 }
