@@ -124,6 +124,7 @@
             // allProductsToolStripMenuItem
             // 
             this.allProductsToolStripMenuItem.Name = "allProductsToolStripMenuItem";
+            this.allProductsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.allProductsToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.allProductsToolStripMenuItem.Text = "All Products";
             this.allProductsToolStripMenuItem.Click += new System.EventHandler(this.allProductsToolStripMenuItem_Click);
@@ -148,6 +149,7 @@
             // listOfCustomersToolStripMenuItem
             // 
             this.listOfCustomersToolStripMenuItem.Name = "listOfCustomersToolStripMenuItem";
+            this.listOfCustomersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
             this.listOfCustomersToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.listOfCustomersToolStripMenuItem.Text = "All Customers";
             this.listOfCustomersToolStripMenuItem.Click += new System.EventHandler(this.listOfCustomersToolStripMenuItem_Click);
@@ -178,7 +180,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnConfirm);
@@ -190,9 +192,9 @@
             this.panel1.Controls.Add(this.textBxOldPass);
             this.panel1.Controls.Add(this.textBxNewUsernm);
             this.panel1.Controls.Add(this.textBxOldUserNm);
-            this.panel1.Location = new System.Drawing.Point(240, 94);
+            this.panel1.Location = new System.Drawing.Point(256, 94);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 247);
+            this.panel1.Size = new System.Drawing.Size(346, 235);
             this.panel1.TabIndex = 1;
             this.panel1.Visible = false;
             // 
@@ -202,7 +204,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancel.Location = new System.Drawing.Point(214, 190);
+            this.btnCancel.Location = new System.Drawing.Point(194, 187);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 26);
             this.btnCancel.TabIndex = 9;
@@ -216,7 +218,7 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConfirm.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfirm.Location = new System.Drawing.Point(57, 190);
+            this.btnConfirm.Location = new System.Drawing.Point(72, 187);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(94, 26);
             this.btnConfirm.TabIndex = 8;
@@ -228,7 +230,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(31, 139);
+            this.label4.Location = new System.Drawing.Point(23, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 18);
             this.label4.TabIndex = 6;
@@ -238,7 +240,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(38, 103);
+            this.label3.Location = new System.Drawing.Point(30, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 18);
             this.label3.TabIndex = 4;
@@ -248,7 +250,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(27, 68);
+            this.label2.Location = new System.Drawing.Point(19, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 18);
             this.label2.TabIndex = 2;
@@ -258,7 +260,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(34, 29);
+            this.label1.Location = new System.Drawing.Point(26, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 18);
             this.label1.TabIndex = 0;
@@ -269,7 +271,7 @@
             this.textBxNewPass.BackColor = System.Drawing.Color.Cornsilk;
             this.textBxNewPass.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBxNewPass.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBxNewPass.Location = new System.Drawing.Point(144, 137);
+            this.textBxNewPass.Location = new System.Drawing.Point(136, 134);
             this.textBxNewPass.Name = "textBxNewPass";
             this.textBxNewPass.PasswordChar = '*';
             this.textBxNewPass.Size = new System.Drawing.Size(185, 26);
@@ -280,7 +282,7 @@
             this.textBxOldPass.BackColor = System.Drawing.Color.Cornsilk;
             this.textBxOldPass.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBxOldPass.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBxOldPass.Location = new System.Drawing.Point(144, 101);
+            this.textBxOldPass.Location = new System.Drawing.Point(136, 98);
             this.textBxOldPass.Name = "textBxOldPass";
             this.textBxOldPass.PasswordChar = '*';
             this.textBxOldPass.Size = new System.Drawing.Size(185, 26);
@@ -291,7 +293,7 @@
             this.textBxNewUsernm.BackColor = System.Drawing.Color.Cornsilk;
             this.textBxNewUsernm.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBxNewUsernm.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBxNewUsernm.Location = new System.Drawing.Point(144, 66);
+            this.textBxNewUsernm.Location = new System.Drawing.Point(136, 63);
             this.textBxNewUsernm.Name = "textBxNewUsernm";
             this.textBxNewUsernm.Size = new System.Drawing.Size(185, 26);
             this.textBxNewUsernm.TabIndex = 3;
@@ -301,7 +303,7 @@
             this.textBxOldUserNm.BackColor = System.Drawing.Color.Cornsilk;
             this.textBxOldUserNm.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBxOldUserNm.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBxOldUserNm.Location = new System.Drawing.Point(144, 27);
+            this.textBxOldUserNm.Location = new System.Drawing.Point(136, 24);
             this.textBxOldUserNm.Name = "textBxOldUserNm";
             this.textBxOldUserNm.Size = new System.Drawing.Size(185, 26);
             this.textBxOldUserNm.TabIndex = 1;
@@ -331,6 +333,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(976, 468);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);

@@ -14,7 +14,7 @@ namespace C_Sharp_WareHouse_Forms
         {
             var list = Containers.CustomerList;
             XmlSerializer serialize = new XmlSerializer(typeof(List<Customer>));
-            using (FileStream file = new FileStream("Customers.xml", FileMode.OpenOrCreate))
+            using (FileStream file = new FileStream("Customers.xml", FileMode.Create))
             {
                 serialize.Serialize(file, list);
             }
@@ -35,7 +35,7 @@ namespace C_Sharp_WareHouse_Forms
         {
             var list = Containers.ProductList;
             XmlSerializer serialize = new XmlSerializer(typeof(List<Product>));
-            using (FileStream file = new FileStream("Products.xml", FileMode.OpenOrCreate))
+            using (FileStream file = new FileStream("Products.xml", FileMode.Create))
             {
                 serialize.Serialize(file, list);
             }

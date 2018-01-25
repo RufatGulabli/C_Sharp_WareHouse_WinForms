@@ -19,12 +19,14 @@ namespace C_Sharp_WareHouse_Forms
 
         public string Username = "username";
         public string Password = "password";
+        bool check = false;
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtBoxName.Text == Username && txtBoxPassw.Text == Password)
             {
-                this.Visible = false;
+                check = true;
+                Close();
             }
             else if (this.Controls.OfType<TextBox>().Any(x => string.IsNullOrEmpty(x.Text)))
             {
@@ -40,15 +42,17 @@ namespace C_Sharp_WareHouse_Forms
             }
         }
 
-        public void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
 
         public void ChangeCredentials(string username, string password)
         {
             Username = username;
             Password = password;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!check)
+                Environment.Exit(0);
         }
     }
 }

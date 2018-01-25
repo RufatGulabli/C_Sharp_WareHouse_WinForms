@@ -27,8 +27,7 @@ namespace C_Sharp_WareHouse_Forms
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loginForm.Close();
-            this.Close();
+            Close();
         }
 
         private void MainViewForm_FormClosed1(object sender, FormClosedEventArgs e)
@@ -46,8 +45,8 @@ namespace C_Sharp_WareHouse_Forms
             Order.IDCounter = Containers.GetLastOrderID();
             loginForm = new Form1();
             loginForm.FormClosed += LoginForm_FormClosed;
-            loginForm.ShowDialog();
             toolStripStatusLabel1.Text = $"Logged In as : {loginForm.Username}";
+            loginForm.ShowDialog();
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)

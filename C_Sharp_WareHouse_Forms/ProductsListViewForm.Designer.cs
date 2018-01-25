@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.pnlUpdatePRD = new System.Windows.Forms.Panel();
             this.richTxtBxAddrUpd = new System.Windows.Forms.RichTextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -56,24 +55,13 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.BackColor = System.Drawing.Color.Cornsilk;
+            this.textBoxSearch.BackColor = System.Drawing.Color.White;
             this.textBoxSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxSearch.Location = new System.Drawing.Point(317, 402);
+            this.textBoxSearch.Location = new System.Drawing.Point(371, 182);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(189, 26);
+            this.textBoxSearch.Size = new System.Drawing.Size(275, 26);
             this.textBoxSearch.TabIndex = 11;
             this.textBoxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_KeyUp);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(248, 404);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 18);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Search";
             // 
             // pnlUpdatePRD
             // 
@@ -89,25 +77,25 @@
             this.pnlUpdatePRD.Controls.Add(this.lbl3Upd);
             this.pnlUpdatePRD.Controls.Add(this.lbl2Upd);
             this.pnlUpdatePRD.Controls.Add(this.lbl1Upd);
-            this.pnlUpdatePRD.Location = new System.Drawing.Point(667, 386);
+            this.pnlUpdatePRD.Location = new System.Drawing.Point(662, 53);
             this.pnlUpdatePRD.Name = "pnlUpdatePRD";
-            this.pnlUpdatePRD.Size = new System.Drawing.Size(572, 171);
+            this.pnlUpdatePRD.Size = new System.Drawing.Size(572, 155);
             this.pnlUpdatePRD.TabIndex = 32;
             this.pnlUpdatePRD.Visible = false;
             // 
             // richTxtBxAddrUpd
             // 
-            this.richTxtBxAddrUpd.BackColor = System.Drawing.Color.Cornsilk;
+            this.richTxtBxAddrUpd.BackColor = System.Drawing.Color.White;
             this.richTxtBxAddrUpd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTxtBxAddrUpd.Location = new System.Drawing.Point(357, 9);
             this.richTxtBxAddrUpd.Name = "richTxtBxAddrUpd";
-            this.richTxtBxAddrUpd.Size = new System.Drawing.Size(189, 115);
+            this.richTxtBxAddrUpd.Size = new System.Drawing.Size(189, 104);
             this.richTxtBxAddrUpd.TabIndex = 24;
             this.richTxtBxAddrUpd.Text = "";
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.Cornsilk;
+            this.numericUpDown1.BackColor = System.Drawing.Color.White;
             this.numericUpDown1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numericUpDown1.Location = new System.Drawing.Point(78, 87);
             this.numericUpDown1.Maximum = new decimal(new int[] {
@@ -121,7 +109,7 @@
             // 
             // numrcUpDwnPrice
             // 
-            this.numrcUpDwnPrice.BackColor = System.Drawing.Color.Cornsilk;
+            this.numrcUpDwnPrice.BackColor = System.Drawing.Color.White;
             this.numrcUpDwnPrice.DecimalPlaces = 2;
             this.numrcUpDwnPrice.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numrcUpDwnPrice.Increment = new decimal(new int[] {
@@ -147,7 +135,7 @@
             this.btnCanXUpd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCanXUpd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCanXUpd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCanXUpd.Location = new System.Drawing.Point(322, 139);
+            this.btnCanXUpd.Location = new System.Drawing.Point(315, 119);
             this.btnCanXUpd.Name = "btnCanXUpd";
             this.btnCanXUpd.Size = new System.Drawing.Size(94, 27);
             this.btnCanXUpd.TabIndex = 21;
@@ -157,7 +145,7 @@
             // 
             // txtBxNameUpd
             // 
-            this.txtBxNameUpd.BackColor = System.Drawing.Color.Cornsilk;
+            this.txtBxNameUpd.BackColor = System.Drawing.Color.White;
             this.txtBxNameUpd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtBxNameUpd.Location = new System.Drawing.Point(77, 10);
             this.txtBxNameUpd.Name = "txtBxNameUpd";
@@ -171,7 +159,7 @@
             this.btnSaveUpd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSaveUpd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSaveUpd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSaveUpd.Location = new System.Drawing.Point(154, 139);
+            this.btnSaveUpd.Location = new System.Drawing.Point(132, 119);
             this.btnSaveUpd.Name = "btnSaveUpd";
             this.btnSaveUpd.Size = new System.Drawing.Size(94, 27);
             this.btnSaveUpd.TabIndex = 20;
@@ -183,7 +171,7 @@
             // 
             this.lbl4Upd.AutoSize = true;
             this.lbl4Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl4Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl4Upd.ForeColor = System.Drawing.Color.White;
             this.lbl4Upd.Location = new System.Drawing.Point(272, 13);
             this.lbl4Upd.Name = "lbl4Upd";
             this.lbl4Upd.Size = new System.Drawing.Size(79, 18);
@@ -194,7 +182,7 @@
             // 
             this.lbl3Upd.AutoSize = true;
             this.lbl3Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl3Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl3Upd.ForeColor = System.Drawing.Color.White;
             this.lbl3Upd.Location = new System.Drawing.Point(10, 89);
             this.lbl3Upd.Name = "lbl3Upd";
             this.lbl3Upd.Size = new System.Drawing.Size(62, 18);
@@ -205,7 +193,7 @@
             // 
             this.lbl2Upd.AutoSize = true;
             this.lbl2Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl2Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl2Upd.ForeColor = System.Drawing.Color.White;
             this.lbl2Upd.Location = new System.Drawing.Point(27, 50);
             this.lbl2Upd.Name = "lbl2Upd";
             this.lbl2Upd.Size = new System.Drawing.Size(39, 18);
@@ -216,7 +204,7 @@
             // 
             this.lbl1Upd.AutoSize = true;
             this.lbl1Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl1Upd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl1Upd.ForeColor = System.Drawing.Color.White;
             this.lbl1Upd.Location = new System.Drawing.Point(27, 14);
             this.lbl1Upd.Name = "lbl1Upd";
             this.lbl1Upd.Size = new System.Drawing.Size(45, 18);
@@ -230,10 +218,10 @@
             this.btnUpdatePRD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdatePRD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnUpdatePRD.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdatePRD.Location = new System.Drawing.Point(13, 505);
+            this.btnUpdatePRD.Location = new System.Drawing.Point(468, 114);
             this.btnUpdatePRD.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdatePRD.Name = "btnUpdatePRD";
-            this.btnUpdatePRD.Size = new System.Drawing.Size(162, 50);
+            this.btnUpdatePRD.Size = new System.Drawing.Size(80, 61);
             this.btnUpdatePRD.TabIndex = 29;
             this.btnUpdatePRD.Text = "Update Product";
             this.btnUpdatePRD.UseVisualStyleBackColor = false;
@@ -246,10 +234,10 @@
             this.btnDeletePRD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeletePRD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDeletePRD.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeletePRD.Location = new System.Drawing.Point(13, 447);
+            this.btnDeletePRD.Location = new System.Drawing.Point(566, 114);
             this.btnDeletePRD.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletePRD.Name = "btnDeletePRD";
-            this.btnDeletePRD.Size = new System.Drawing.Size(162, 50);
+            this.btnDeletePRD.Size = new System.Drawing.Size(80, 61);
             this.btnDeletePRD.TabIndex = 30;
             this.btnDeletePRD.Text = "Delete Product";
             this.btnDeletePRD.UseVisualStyleBackColor = false;
@@ -262,10 +250,10 @@
             this.btnAddPRD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddPRD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddPRD.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddPRD.Location = new System.Drawing.Point(13, 388);
+            this.btnAddPRD.Location = new System.Drawing.Point(371, 114);
             this.btnAddPRD.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPRD.Name = "btnAddPRD";
-            this.btnAddPRD.Size = new System.Drawing.Size(162, 50);
+            this.btnAddPRD.Size = new System.Drawing.Size(80, 61);
             this.btnAddPRD.TabIndex = 31;
             this.btnAddPRD.Text = "Add New Product";
             this.btnAddPRD.UseVisualStyleBackColor = false;
@@ -273,6 +261,9 @@
             // 
             // dataGridViewPRD
             // 
+            this.dataGridViewPRD.AllowUserToAddRows = false;
+            this.dataGridViewPRD.AllowUserToDeleteRows = false;
+            this.dataGridViewPRD.AllowUserToOrderColumns = true;
             this.dataGridViewPRD.AllowUserToResizeRows = false;
             this.dataGridViewPRD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -296,11 +287,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPRD.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPRD.Location = new System.Drawing.Point(12, 40);
+            this.dataGridViewPRD.Location = new System.Drawing.Point(12, 214);
             this.dataGridViewPRD.MultiSelect = false;
             this.dataGridViewPRD.Name = "dataGridViewPRD";
+            this.dataGridViewPRD.ReadOnly = true;
             this.dataGridViewPRD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPRD.Size = new System.Drawing.Size(1222, 341);
+            this.dataGridViewPRD.Size = new System.Drawing.Size(1222, 338);
             this.dataGridViewPRD.TabIndex = 34;
             // 
             // label1
@@ -308,8 +300,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(407, 9);
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label1.Location = new System.Drawing.Point(487, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(264, 23);
             this.label1.TabIndex = 35;
@@ -319,9 +311,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1246, 564);
             this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewPRD);
             this.Controls.Add(this.pnlUpdatePRD);
@@ -343,7 +335,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlUpdatePRD;
         private System.Windows.Forms.Button btnCanXUpd;
         private System.Windows.Forms.TextBox txtBxNameUpd;

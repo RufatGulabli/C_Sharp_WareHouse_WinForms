@@ -54,13 +54,22 @@ namespace C_Sharp_WareHouse_Forms
 
         private void btnDeletePRD_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataGridViewPRD.SelectedRows[0].Cells[0].Value);
-            if (MessageBox.Show("Are you sure to remove selected item?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            try
             {
-                container.DeleteProduct(id);
-                MessageBox.Show("Removed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dataGridViewPRD.SelectedRows is null || dataGridViewPRD.SelectedRows[0].Cells[0].Value == null)
+                    throw new Exception("No any element to remove");
+                int id = Convert.ToInt32(dataGridViewPRD.SelectedRows[0].Cells[0].Value);
+                if (MessageBox.Show("Are you sure to remove selected item?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    container.DeleteProduct(id);
+                    MessageBox.Show("Removed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
             }
-            return;
+            catch
+            {
+                MessageBox.Show("No any product selected", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnUpdatePRD_Click(object sender, EventArgs e)
@@ -77,6 +86,7 @@ namespace C_Sharp_WareHouse_Forms
             catch (Exception)
             {
                 MessageBox.Show("Please choose any Product", "ERROR",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                pnlUpdatePRD.Visible = false;
             }
         }
 
