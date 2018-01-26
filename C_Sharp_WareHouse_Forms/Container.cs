@@ -12,11 +12,13 @@ namespace C_Sharp_WareHouse_Forms
         public static List<Product> ProductList = new List<Product>();
         public static List<Customer> CustomerList = new List<Customer>();
         public static List<Order> OrderList = new List<Order>();
+
         public delegate void CustomerListGridViewUpdate();
         public event CustomerListGridViewUpdate CustomersUpdate;
-
         public delegate void ProductListGridViewUpdate();
         public event ProductListGridViewUpdate ProductsUpdate;
+        public delegate void OrderListGriViewUpdate();
+        public event OrderListGriViewUpdate OrdersUpdate;
 
         public void AddCustomer(Customer cust)
         {
@@ -47,12 +49,29 @@ namespace C_Sharp_WareHouse_Forms
         public void AddOrder(Order order)
         {
             OrderList.Add(order);
+            OrdersUpdate?.Invoke();
         }
 
         public void DeleteOrder(int id)
         {
-            var order = OrderList.Find(item => item.UniqueID == id);
+            var order = OrderList.Find(item => item.OrderID == id);
+            var product = ProductList.Find(item => item.UniqueID == order.Product.UniqueID);
+            if(!(product is null))
+                product.Quantity += order.Quantity;
+            else
+            {
+                Product pro = new Product()
+                {
+                    UniqueID = product.UniqueID,
+                    ArticleName = product.ArticleName,
+                    Price = product.Price,
+                    Quantity = product.Quantity,
+                    Description = product.Description,
+                };
+                ProductList.Add(pro);
+            }
             OrderList.Remove(order);
+            OrdersUpdate?.Invoke();
         }
 
         public static int GetLastCustomerID()
@@ -83,7 +102,7 @@ namespace C_Sharp_WareHouse_Forms
                 return 0;
             else
             {
-                int i = OrderList[OrderList.Count - 1].UniqueID;
+                int i = OrderList[OrderList.Count - 1].OrderID;
                 return i;
             }
         }

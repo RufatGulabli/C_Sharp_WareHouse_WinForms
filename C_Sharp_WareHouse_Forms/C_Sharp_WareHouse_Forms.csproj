@@ -38,6 +38,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -75,11 +76,17 @@
     <Compile Include="CustomerDataGridView.Designer.cs">
       <DependentUpon>CustomerDataGridView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderlistGridViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderlistGridViewForm.Designer.cs">
+      <DependentUpon>OrderlistGridViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainViewForm.cs">
       <SubType>Form</SubType>
@@ -93,7 +100,7 @@
     <Compile Include="OrderAdding.Designer.cs">
       <DependentUpon>OrderAdding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs" />
+    <Compile Include="Entities.cs" />
     <Compile Include="ProductAdding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,8 +122,11 @@
     <EmbeddedResource Include="CustomerDataGridView.resx">
       <DependentUpon>CustomerDataGridView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderlistGridViewForm.resx">
+      <DependentUpon>OrderlistGridViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainViewForm.resx">
       <DependentUpon>MainViewForm.cs</DependentUpon>

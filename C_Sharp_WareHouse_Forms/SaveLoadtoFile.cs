@@ -52,5 +52,25 @@ namespace C_Sharp_WareHouse_Forms
             }
         }
 
+        public static void SaveOrderstoXml()
+        {
+            var list = Containers.OrderList;
+            XmlSerializer serialize = new XmlSerializer(typeof(List<Order>));
+            using (FileStream file = new FileStream("Orders.xml", FileMode.Create))
+            {
+                serialize.Serialize(file, list);
+            }
+        }
+
+        public static void LoadOrdersFromXML()
+        {
+            if (!File.Exists(@"Orders.xml"))
+                return;
+            XmlSerializer deserializer = new XmlSerializer(typeof(List<Order>));
+            using (StreamReader file = new StreamReader(@"Orders.xml"))
+            {
+                Containers.OrderList = (List<Order>)deserializer.Deserialize(file);
+            }
+        }
     }
 }

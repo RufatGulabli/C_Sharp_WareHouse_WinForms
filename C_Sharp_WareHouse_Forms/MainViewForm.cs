@@ -12,13 +12,14 @@ namespace C_Sharp_WareHouse_Forms
 {
     public partial class MainViewForm : Form
     {
-        Form1 loginForm = new Form1();
+        Login loginForm = new Login();
         ProductAdding addingProductForm = null;
         CustomerAdding addingCustomerForm = null;
         OrderAdding addingOrderForm = null;
         Containers containers = new Containers();
         CustomerDataGridView customerDataGridForm = null;
         ProductsDataGridtViewForm productsGridView = null;
+        OrderlistGridViewForm ordersGridViewForm = null;
 
         public MainViewForm()
         {
@@ -34,19 +35,21 @@ namespace C_Sharp_WareHouse_Forms
         {
             SaveLoadtoFile.SaveCustomerstoXml();
             SaveLoadtoFile.SaveProductstoXml();
+            SaveLoadtoFile.SaveOrderstoXml();
         }
 
         private void MainViewForm_Load(object sender, EventArgs e)
         {
             SaveLoadtoFile.LoadCustomersFromXML();
             SaveLoadtoFile.LoadProductsFromXML();
+            SaveLoadtoFile.LoadOrdersFromXML();
             Product.IDCounter = Containers.GetLastProductID();
             Customer.IDCounter = Containers.GetLastCustomerID();
             Order.IDCounter = Containers.GetLastOrderID();
-            loginForm = new Form1();
+            loginForm = new Login();
             loginForm.FormClosed += LoginForm_FormClosed;
             toolStripStatusLabel1.Text = $"Logged In as : {loginForm.Username}";
-            loginForm.ShowDialog();
+            //loginForm.ShowDialog();
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -125,7 +128,7 @@ namespace C_Sharp_WareHouse_Forms
         {
             if (addingOrderForm == null)
             {
-                addingOrderForm = new OrderAdding();
+                addingOrderForm = new OrderAdding(containers);
                 addingOrderForm.StartPosition = FormStartPosition.CenterParent;
                 addingOrderForm.FormClosed += AddingOrderForm_FormClosed;
                 addingOrderForm.Show();
@@ -175,6 +178,25 @@ namespace C_Sharp_WareHouse_Forms
         private void ProductsGridView_FormClosed(object sender, FormClosedEventArgs e)
         {
             productsGridView = null;
+        }
+
+        private void allOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ordersGridViewForm == null)
+            {
+                ordersGridViewForm = new OrderlistGridViewForm(containers);
+                ordersGridViewForm.MdiParent = this;
+                ordersGridViewForm.StartPosition = FormStartPosition.CenterParent;
+                ordersGridViewForm.FormClosed += OrdersGridViewForm_FormClosed; ;
+                ordersGridViewForm.Show();
+            }
+            else
+                ordersGridViewForm.Activate();
+        }
+
+        private void OrdersGridViewForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ordersGridViewForm = null;
         }
     }
 

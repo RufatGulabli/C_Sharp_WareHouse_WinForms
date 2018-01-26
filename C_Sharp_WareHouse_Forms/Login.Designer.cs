@@ -1,6 +1,6 @@
 ﻿namespace C_Sharp_WareHouse_Forms
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.txtBoxName = new System.Windows.Forms.TextBox();
             this.txtBoxPassw = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();

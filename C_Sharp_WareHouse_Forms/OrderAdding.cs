@@ -12,14 +12,56 @@ namespace C_Sharp_WareHouse_Forms
 {
     public partial class OrderAdding : Form
     {
-        public OrderAdding()
+        Containers container;
+
+        public OrderAdding(Containers cont)
         {
             InitializeComponent();
+            container = cont;
         }
 
         private void btnCanx_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void OrderAdding_Load(object sender, EventArgs e)
+        {
+            var customerList = Containers.CustomerList;
+            foreach (var item in customerList)
+            {
+                comboBox1.Items.Add(item);
+            }
+            var productList = Containers.ProductList;
+            foreach (var item in productList)
+            {
+                comboBox2.Items.Add(item);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Controls.OfType<ComboBox>().Any(item => item.SelectedItem == null))
+                    throw new Exception("Please choose Customer & Product");
+                if(numricUpDownQuan.Value <= 0)
+                    throw new Exception("Quantity can not be zero");
+                Customer customer = (Customer)comboBox1.SelectedItem;
+                Product product = (Product)comboBox2.SelectedItem;
+                if (product.Quantity - (int)numricUpDownQuan.Value < 0)
+                    throw new Exception("Product quantity is less than ordered products count");
+                product.Quantity -= (int)numricUpDownQuan.Value;
+                Order order = new Order(customer,product,(int)numricUpDownQuan.Value,dateTimePicker1.Value);
+                container.AddOrder(order);
+                MessageBox.Show(order.OrderID.ToString() + " " + order.Quantity.ToString() + " " + order.OrderedTime.ToShortDateString());
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

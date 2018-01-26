@@ -38,7 +38,6 @@ namespace C_Sharp_WareHouse_Forms
                     throw new Exception("Price has not been set");
                 Product prod = new Product(textBxPrdNm.Text, numrcUpDwnPrice.Value, (int)numricUpDownQuan.Value, richTextBoxDesc.Text);
                 container.AddProduct(prod);
-                MessageBox.Show("Successfully Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();        
                 return;
             }

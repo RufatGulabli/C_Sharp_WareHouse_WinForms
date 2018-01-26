@@ -126,7 +126,7 @@
             this.allProductsToolStripMenuItem.Name = "allProductsToolStripMenuItem";
             this.allProductsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.allProductsToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.allProductsToolStripMenuItem.Text = "All Products";
+            this.allProductsToolStripMenuItem.Text = "All &Products";
             this.allProductsToolStripMenuItem.Click += new System.EventHandler(this.allProductsToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
@@ -151,7 +151,7 @@
             this.listOfCustomersToolStripMenuItem.Name = "listOfCustomersToolStripMenuItem";
             this.listOfCustomersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
             this.listOfCustomersToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.listOfCustomersToolStripMenuItem.Text = "All Customers";
+            this.listOfCustomersToolStripMenuItem.Text = "All &Customers";
             this.listOfCustomersToolStripMenuItem.Click += new System.EventHandler(this.listOfCustomersToolStripMenuItem_Click);
             // 
             // orderToolStripMenuItem
@@ -175,8 +175,10 @@
             // allOrdersToolStripMenuItem
             // 
             this.allOrdersToolStripMenuItem.Name = "allOrdersToolStripMenuItem";
+            this.allOrdersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
             this.allOrdersToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.allOrdersToolStripMenuItem.Text = "All Orders";
+            this.allOrdersToolStripMenuItem.Text = "All &Orders";
+            this.allOrdersToolStripMenuItem.Click += new System.EventHandler(this.allOrdersToolStripMenuItem_Click);
             // 
             // panel1
             // 

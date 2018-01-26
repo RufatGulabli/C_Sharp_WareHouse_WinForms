@@ -36,6 +36,11 @@ namespace C_Sharp_WareHouse_Forms
             Quantity = quantity;
             Description = descrptn;
         }
+
+        public override string ToString()
+        {
+            return "[ ID: " + UniqueID + " ] " + this.ArticleName; 
+        }
     }
 
 
@@ -69,23 +74,34 @@ namespace C_Sharp_WareHouse_Forms
             Contact = contact;
             Address = address;
         }
+
+        public override string ToString()
+        {
+            return "[ ID: " + UniqueID + " ] " + this.FirstName + " " + this.LastName; 
+        }
     }
 
+    public enum OrderStatus
+    {
+        Not_Delivered,
+        Delivered
+    }
 
     public class Order
     {
         [XmlIgnore]
         public static int IDCounter = 0;
-        public int UniqueID { get; set; }
+        public int OrderID { get; set; }
         public Customer Client { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
         public DateTime OrderedTime { get; set; }
+        public OrderStatus Status { get; set; }
 
         public Order() {}
         public Order(Customer client, Product prod, int quantity, DateTime date)
         {
-            UniqueID = ++IDCounter;
+            OrderID = ++IDCounter;
             Client = client;
             Product = prod;
             Quantity = quantity;
