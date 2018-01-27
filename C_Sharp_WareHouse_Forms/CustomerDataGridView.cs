@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,7 +21,6 @@ namespace C_Sharp_WareHouse_Forms
             InitializeComponent();
             containers = cont;
             containers.CustomersUpdate += UpdateDataGrid;
-            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -55,12 +55,30 @@ namespace C_Sharp_WareHouse_Forms
 
         private void btnSaveUpd_Click(object sender, EventArgs e)
         {
-            int index = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            containers.UpdateCustomer(index, txtBxNameUpd.Text, txtBxSurnameUpd.Text, txtBoxEmailUpd.Text,
-                maskdTxtBxPhoneUpd.Text, richTxtBxAddrUpd.Text);
-            MessageBox.Show("Successfully Updated", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            dataGridView1.Enabled = true;
-            pnlUpdate.Visible = false;
+            try
+            {
+                int index = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                if (Controls.OfType<TextBox>().Any(x => string.IsNullOrEmpty(x.Text)))
+                    throw new Exception("Please fill all rows");
+                if (!Regex.IsMatch(txtBoxEmailUpd.Text,@"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                RegexOptions.IgnoreCase))
+                    throw new Exception("WRONG EMAIL FORMAT");
+                if ((!Regex.IsMatch(txtBxNameUpd.Text, @"^[a-zA-Z]{3,50}$"))
+                    || (!Regex.IsMatch(txtBxSurnameUpd.Text, @"^[a-zA-Z]{3,50}$")))
+                    throw new Exception("Name or Surname can not contain any Numbers");
+                if (!maskdTxtBxPhoneUpd.MaskFull)
+                    throw new Exception("Please fill Contact Deatils");
+                containers.UpdateCustomer(index, txtBxNameUpd.Text, txtBxSurnameUpd.Text, txtBoxEmailUpd.Text,
+                    maskdTxtBxPhoneUpd.Text, richTxtBxAddrUpd.Text);
+                MessageBox.Show("Successfully Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridView1.Enabled = true;
+                pnlUpdate.Visible = false;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
             
         }
 
@@ -173,36 +191,55 @@ namespace C_Sharp_WareHouse_Forms
 
         private void txtboxNameSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            string keyword = txtboxNameSearch.Text;
-            var matchedItems = (int.TryParse(keyword, out int digit) ?
-                 throw new Exception("Please type only letters"):
-                 Containers.CustomerList.FindAll(item => item.FirstName.IndexOf
-                 (keyword, 0,StringComparison.OrdinalIgnoreCase) == 0)).ToList();
-            DataTable table = ConvertToDataTable(matchedItems);
-            dataGridView1.DataSource = table;
+            try
+            {
+                string keyword = txtboxNameSearch.Text;
+                var matchedItems = (int.TryParse(keyword, out int digit) ?
+                     throw new Exception("Please type only letters") :
+                     Containers.CustomerList.FindAll(item => item.FirstName.IndexOf
+                     (keyword, 0, StringComparison.OrdinalIgnoreCase) == 0)).ToList();
+                DataTable table = ConvertToDataTable(matchedItems);
+                dataGridView1.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void txtBxSurnameSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            string keyword = txtBxSurnameSearch.Text;
-            var matchedItems = (int.TryParse(keyword, out int digit) ?
-                 throw new Exception("Please type only letters") :
-                 Containers.CustomerList.FindAll(item => item.LastName.IndexOf
-                 (keyword, 0, StringComparison.OrdinalIgnoreCase) == 0)).ToList();
-            DataTable table = ConvertToDataTable(matchedItems);
-            dataGridView1.DataSource = table;
+            try
+            { 
+                string keyword = txtBxSurnameSearch.Text;
+                var matchedItems = (int.TryParse(keyword, out int digit) ?
+                     throw new Exception("Please type only letters") :
+                     Containers.CustomerList.FindAll(item => item.LastName.IndexOf
+                     (keyword, 0, StringComparison.OrdinalIgnoreCase) == 0)).ToList();
+                DataTable table = ConvertToDataTable(matchedItems);
+                dataGridView1.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtBxEmailSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            string keyword = txtBxEmailSearch.Text;
-            var matchedItems = (int.TryParse(keyword, out int digit) ?
-                 throw new Exception("Please type only letters") :
-                 Containers.CustomerList.FindAll(item => item.Email.IndexOf
-                 (keyword, 0, StringComparison.OrdinalIgnoreCase) == 0)).ToList();
-            DataTable table = ConvertToDataTable(matchedItems);
-            dataGridView1.DataSource = table;
-        }
+            try
+            {
+                string keyword = txtBxEmailSearch.Text;
+                var matchedItems = Containers.CustomerList.FindAll(item => item.Email.IndexOf
+                     (keyword, 0, StringComparison.OrdinalIgnoreCase) == 0).ToList();
+                DataTable table = ConvertToDataTable(matchedItems);
+                dataGridView1.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+}
 
         private void ClearText(object sender, EventArgs e)
         {
@@ -216,9 +253,9 @@ namespace C_Sharp_WareHouse_Forms
 
         private void msktxtBxSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            var matchedItems = Containers.CustomerList.FindAll(item => item.Contact.Equals(msktxtBxSearch.Text));
-            //var matchedItems = Containers.CustomerList.FindAll(item => item.Contact.IndexOf
-            //(msktxtBxSearch.Text, 0, StringComparison.OrdinalIgnoreCase) == 0).ToList();
+            
+            var matchedItems = Containers.CustomerList.FindAll(item => item.Contact.IndexOf
+                (msktxtBxSearch.Text, 0, StringComparison.OrdinalIgnoreCase) == 0).ToList();
             DataTable table = ConvertToDataTable(matchedItems);
             dataGridView1.DataSource = table;
         }

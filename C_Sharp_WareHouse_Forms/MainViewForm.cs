@@ -147,7 +147,7 @@ namespace C_Sharp_WareHouse_Forms
             if (customerDataGridForm == null)
             {
                 customerDataGridForm = new CustomerDataGridView(containers);
-                customerDataGridForm.StartPosition = FormStartPosition.CenterParent;
+                customerDataGridForm.StartPosition = FormStartPosition.CenterScreen;
                 customerDataGridForm.MdiParent = this;
                 customerDataGridForm.FormClosed += CustomerDataGridForm_FormClosed1; ;
                 customerDataGridForm.Show();
@@ -167,7 +167,7 @@ namespace C_Sharp_WareHouse_Forms
             {
                 productsGridView = new ProductsDataGridtViewForm(containers);
                 productsGridView.MdiParent = this;
-                productsGridView.StartPosition = FormStartPosition.CenterParent;
+                productsGridView.StartPosition = FormStartPosition.CenterScreen;
                 productsGridView.FormClosed += ProductsGridView_FormClosed;
                 productsGridView.Show();
             }
@@ -186,7 +186,7 @@ namespace C_Sharp_WareHouse_Forms
             {
                 ordersGridViewForm = new OrderlistGridViewForm(containers);
                 ordersGridViewForm.MdiParent = this;
-                ordersGridViewForm.StartPosition = FormStartPosition.CenterParent;
+                ordersGridViewForm.StartPosition = FormStartPosition.CenterScreen;
                 ordersGridViewForm.FormClosed += OrdersGridViewForm_FormClosed; ;
                 ordersGridViewForm.Show();
             }

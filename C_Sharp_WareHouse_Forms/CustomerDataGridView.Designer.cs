@@ -365,7 +365,7 @@
             this.msktxtBxSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.msktxtBxSearch.ForeColor = System.Drawing.Color.Silver;
             this.msktxtBxSearch.Location = new System.Drawing.Point(1118, 215);
-            this.msktxtBxSearch.Mask = "+(99900) 000-00-00";
+            this.msktxtBxSearch.Mask = "(+99900) 000-00-00";
             this.msktxtBxSearch.Name = "msktxtBxSearch";
             this.msktxtBxSearch.Size = new System.Drawing.Size(147, 26);
             this.msktxtBxSearch.TabIndex = 6;

@@ -37,12 +37,8 @@ namespace C_Sharp_WareHouse_Forms
             Description = descrptn;
         }
 
-        public override string ToString()
-        {
-            return "[ ID: " + UniqueID + " ] " + this.ArticleName; 
-        }
+        public override string ToString() => ArticleName;
     }
-
 
     public class Customer
     {
@@ -75,10 +71,7 @@ namespace C_Sharp_WareHouse_Forms
             Address = address;
         }
 
-        public override string ToString()
-        {
-            return "[ ID: " + UniqueID + " ] " + this.FirstName + " " + this.LastName; 
-        }
+        public override string ToString() => FirstName + " " + LastName;
     }
 
     public enum OrderStatus

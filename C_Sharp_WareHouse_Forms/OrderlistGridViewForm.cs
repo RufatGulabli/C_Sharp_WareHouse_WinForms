@@ -12,8 +12,9 @@ namespace C_Sharp_WareHouse_Forms
 {
     public partial class OrderlistGridViewForm : Form
     {
-        Containers container;
+        Containers container = null;
         OrderAdding addingOrderForm = null;
+
         public OrderlistGridViewForm(Containers cont)
         {
             InitializeComponent();
@@ -98,6 +99,114 @@ namespace C_Sharp_WareHouse_Forms
                 table.Rows.Add(row);
             }
             return table;
+        }
+
+        private void txtboxClientSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                string keyword = txtboxClientSearch.Text;
+                var matchedItems = (!int.TryParse(keyword, out int digit)) ?
+                    Containers.OrderList.FindAll(item => item.Client.FirstName.IndexOf
+                (keyword, 0, StringComparison.OrdinalIgnoreCase) == 0 || item.Client.LastName.IndexOf
+                (keyword, 0, StringComparison.OrdinalIgnoreCase) == 0).ToList() :
+                throw new Exception("Please type only letters");
+                DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
+                dataGridView1.DataSource = table;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void ClearText(object sender, EventArgs e)
+        {
+            var txtBxSearch = (sender as TextBox);
+            if (txtBxSearch.Text.Contains("Search by "))
+            {
+                txtBxSearch.Text = "";
+                txtBxSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtboxClientSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtboxClientSearch.Text == "")
+            {
+                txtboxClientSearch.ForeColor = Color.Silver;
+                txtboxClientSearch.Text = "Search by Client";
+            }
+        }
+
+        private void txtBxProductSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtBxProductSearch.Text == "")
+            {
+                txtBxProductSearch.ForeColor = Color.Silver;
+                txtBxProductSearch.Text = "Search by Product";
+            }
+        }
+
+        private void txtBxDateSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtBxDateSearch.Text == "")
+            {
+                txtBxDateSearch.ForeColor = Color.Silver;
+                txtBxDateSearch.Text = "Search by Date";
+            }
+        }
+
+        private void txtBoxQuantitySearch_Leave(object sender, EventArgs e)
+        {
+            if (txtBoxQuantitySearch.Text == "")
+            {
+                txtBoxQuantitySearch.ForeColor = Color.Silver;
+                txtBoxQuantitySearch.Text = "Search by Quantity";
+            }
+        }
+
+        private void txtBxProductSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            string keyword = txtBxProductSearch.Text;
+            var matchedItems = Containers.OrderList.FindAll(item => item.Product.ArticleName.
+                IndexOf(keyword, 0, StringComparison.OrdinalIgnoreCase) == 0).ToList();
+            DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
+            dataGridView1.DataSource = table;
+        }
+
+        private void txtBxDateSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            //try
+            //{
+            //    DateTime keyword = txtBxDateSearch.Text;
+            //    var matchedItems = (!int.TryParse(keyword, out int digit)) ?
+            //        Containers.OrderList.FindAll(item => item.OrderedTime == keyword).ToList() :
+            //        throw new Exception("Please type only letters");
+            //    DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
+            //    dataGridView1.DataSource = table;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+
+        private void txtBoxQuantitySearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+
+                int keyword = Convert.ToInt32(txtBxDateSearch.Text);
+                var matchedItems = Containers.OrderList.FindAll(item => item.Quantity == keyword).ToList();
+                DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
+                dataGridView1.DataSource = table;
+                    //throw new Exception("Please type only letters");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

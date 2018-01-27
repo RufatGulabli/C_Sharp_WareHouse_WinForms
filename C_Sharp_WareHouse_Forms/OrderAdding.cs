@@ -52,9 +52,12 @@ namespace C_Sharp_WareHouse_Forms
                 if (product.Quantity - (int)numricUpDownQuan.Value < 0)
                     throw new Exception("Product quantity is less than ordered products count");
                 product.Quantity -= (int)numricUpDownQuan.Value;
+                if (product.Quantity == 0)
+                    Containers.ProductList.Remove(product);
                 Order order = new Order(customer,product,(int)numricUpDownQuan.Value,dateTimePicker1.Value);
                 container.AddOrder(order);
-                MessageBox.Show(order.OrderID.ToString() + " " + order.Quantity.ToString() + " " + order.OrderedTime.ToShortDateString());
+                MessageBox.Show("Order Completed Successfully", "Congratulations",MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 Close();
             }
             catch (Exception ex)
@@ -62,6 +65,13 @@ namespace C_Sharp_WareHouse_Forms
                 MessageBox.Show(ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             
+        }
+
+        private void comboBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem == null) return;
+            var remaining = ((Product)comboBox2.SelectedItem).Quantity;
+            toolTip1.Show($"Selected Product Quantity : {remaining}", comboBox2, 20, 20, 5000);
         }
     }
 }

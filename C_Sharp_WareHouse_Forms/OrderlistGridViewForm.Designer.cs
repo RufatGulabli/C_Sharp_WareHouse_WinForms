@@ -29,65 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderlistGridViewForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtBxSurnameSearch = new System.Windows.Forms.TextBox();
-            this.txtBxEmailSearch = new System.Windows.Forms.TextBox();
-            this.txtboxNameSearch = new System.Windows.Forms.TextBox();
-            this.msktxtBxSearch = new System.Windows.Forms.MaskedTextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txtBxProductSearch = new System.Windows.Forms.TextBox();
+            this.txtBxDateSearch = new System.Windows.Forms.TextBox();
+            this.txtboxClientSearch = new System.Windows.Forms.TextBox();
             this.btnDeleteOrder = new System.Windows.Forms.Button();
             this.btnMakeNewOrder = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtBoxQuantitySearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtBxSurnameSearch
+            // txtBxProductSearch
             // 
-            this.txtBxSurnameSearch.BackColor = System.Drawing.Color.White;
-            this.txtBxSurnameSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtBxSurnameSearch.ForeColor = System.Drawing.Color.Silver;
-            this.txtBxSurnameSearch.Location = new System.Drawing.Point(523, 229);
-            this.txtBxSurnameSearch.Name = "txtBxSurnameSearch";
-            this.txtBxSurnameSearch.Size = new System.Drawing.Size(147, 26);
-            this.txtBxSurnameSearch.TabIndex = 34;
-            this.txtBxSurnameSearch.Text = "Search by Product";
+            this.txtBxProductSearch.BackColor = System.Drawing.Color.White;
+            this.txtBxProductSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBxProductSearch.ForeColor = System.Drawing.Color.Silver;
+            this.txtBxProductSearch.Location = new System.Drawing.Point(521, 229);
+            this.txtBxProductSearch.Name = "txtBxProductSearch";
+            this.txtBxProductSearch.Size = new System.Drawing.Size(147, 26);
+            this.txtBxProductSearch.TabIndex = 3;
+            this.txtBxProductSearch.Text = "Search by Product";
+            this.txtBxProductSearch.Enter += new System.EventHandler(this.ClearText);
+            this.txtBxProductSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBxProductSearch_KeyUp);
+            this.txtBxProductSearch.Leave += new System.EventHandler(this.txtBxProductSearch_Leave);
             // 
-            // txtBxEmailSearch
+            // txtBxDateSearch
             // 
-            this.txtBxEmailSearch.BackColor = System.Drawing.Color.White;
-            this.txtBxEmailSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtBxEmailSearch.ForeColor = System.Drawing.Color.Silver;
-            this.txtBxEmailSearch.Location = new System.Drawing.Point(676, 229);
-            this.txtBxEmailSearch.Name = "txtBxEmailSearch";
-            this.txtBxEmailSearch.Size = new System.Drawing.Size(147, 26);
-            this.txtBxEmailSearch.TabIndex = 35;
-            this.txtBxEmailSearch.Text = "Search by Email";
+            this.txtBxDateSearch.BackColor = System.Drawing.Color.White;
+            this.txtBxDateSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBxDateSearch.ForeColor = System.Drawing.Color.Silver;
+            this.txtBxDateSearch.Location = new System.Drawing.Point(674, 229);
+            this.txtBxDateSearch.Name = "txtBxDateSearch";
+            this.txtBxDateSearch.Size = new System.Drawing.Size(147, 26);
+            this.txtBxDateSearch.TabIndex = 4;
+            this.txtBxDateSearch.Text = "Search by Date";
+            this.txtBxDateSearch.Enter += new System.EventHandler(this.ClearText);
+            this.txtBxDateSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBxDateSearch_KeyUp);
+            this.txtBxDateSearch.Leave += new System.EventHandler(this.txtBxDateSearch_Leave);
             // 
-            // txtboxNameSearch
+            // txtboxClientSearch
             // 
-            this.txtboxNameSearch.BackColor = System.Drawing.Color.White;
-            this.txtboxNameSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtboxNameSearch.ForeColor = System.Drawing.Color.Silver;
-            this.txtboxNameSearch.Location = new System.Drawing.Point(371, 229);
-            this.txtboxNameSearch.Name = "txtboxNameSearch";
-            this.txtboxNameSearch.Size = new System.Drawing.Size(147, 26);
-            this.txtboxNameSearch.TabIndex = 33;
-            this.txtboxNameSearch.Text = "Search by Customer";
-            // 
-            // msktxtBxSearch
-            // 
-            this.msktxtBxSearch.BackColor = System.Drawing.Color.White;
-            this.msktxtBxSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.msktxtBxSearch.ForeColor = System.Drawing.Color.Silver;
-            this.msktxtBxSearch.Location = new System.Drawing.Point(835, 229);
-            this.msktxtBxSearch.Mask = "(+99900) 000-00-00";
-            this.msktxtBxSearch.Name = "msktxtBxSearch";
-            this.msktxtBxSearch.Size = new System.Drawing.Size(147, 26);
-            this.msktxtBxSearch.TabIndex = 36;
+            this.txtboxClientSearch.BackColor = System.Drawing.Color.White;
+            this.txtboxClientSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtboxClientSearch.ForeColor = System.Drawing.Color.Silver;
+            this.txtboxClientSearch.Location = new System.Drawing.Point(369, 229);
+            this.txtboxClientSearch.Name = "txtboxClientSearch";
+            this.txtboxClientSearch.Size = new System.Drawing.Size(147, 26);
+            this.txtboxClientSearch.TabIndex = 2;
+            this.txtboxClientSearch.Text = "Search by Client";
+            this.txtboxClientSearch.Enter += new System.EventHandler(this.ClearText);
+            this.txtboxClientSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtboxClientSearch_KeyUp);
+            this.txtboxClientSearch.Leave += new System.EventHandler(this.txtboxClientSearch_Leave);
             // 
             // btnDeleteOrder
             // 
@@ -96,15 +94,15 @@
             this.btnDeleteOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDeleteOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteOrder.FlatAppearance.BorderSize = 0;
-            this.btnDeleteOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnDeleteOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
             this.btnDeleteOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteOrder.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDeleteOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeleteOrder.Location = new System.Drawing.Point(449, 155);
+            this.btnDeleteOrder.Location = new System.Drawing.Point(586, 102);
             this.btnDeleteOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteOrder.Name = "btnDeleteOrder";
-            this.btnDeleteOrder.Size = new System.Drawing.Size(69, 67);
-            this.btnDeleteOrder.TabIndex = 31;
+            this.btnDeleteOrder.Size = new System.Drawing.Size(82, 89);
+            this.btnDeleteOrder.TabIndex = 1;
             this.btnDeleteOrder.UseVisualStyleBackColor = false;
             this.btnDeleteOrder.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -115,15 +113,15 @@
             this.btnMakeNewOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMakeNewOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMakeNewOrder.FlatAppearance.BorderSize = 0;
-            this.btnMakeNewOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnMakeNewOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
             this.btnMakeNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMakeNewOrder.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMakeNewOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMakeNewOrder.Location = new System.Drawing.Point(372, 155);
+            this.btnMakeNewOrder.Location = new System.Drawing.Point(418, 102);
             this.btnMakeNewOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnMakeNewOrder.Name = "btnMakeNewOrder";
-            this.btnMakeNewOrder.Size = new System.Drawing.Size(69, 67);
-            this.btnMakeNewOrder.TabIndex = 30;
+            this.btnMakeNewOrder.Size = new System.Drawing.Size(98, 89);
+            this.btnMakeNewOrder.TabIndex = 0;
             this.btnMakeNewOrder.UseVisualStyleBackColor = false;
             this.btnMakeNewOrder.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -132,8 +130,8 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -141,58 +139,76 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle14.NullValue = null;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 261);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 261);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(970, 255);
-            this.dataGridView1.TabIndex = 38;
+            this.dataGridView1.Size = new System.Drawing.Size(1239, 291);
+            this.dataGridView1.TabIndex = 6;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, -4);
+            this.pictureBox1.Location = new System.Drawing.Point(3, -3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(353, 259);
+            this.pictureBox1.Size = new System.Drawing.Size(353, 258);
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
+            // 
+            // txtBoxQuantitySearch
+            // 
+            this.txtBoxQuantitySearch.BackColor = System.Drawing.Color.White;
+            this.txtBoxQuantitySearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBoxQuantitySearch.ForeColor = System.Drawing.Color.Silver;
+            this.txtBoxQuantitySearch.Location = new System.Drawing.Point(827, 229);
+            this.txtBoxQuantitySearch.Name = "txtBoxQuantitySearch";
+            this.txtBoxQuantitySearch.Size = new System.Drawing.Size(147, 26);
+            this.txtBoxQuantitySearch.TabIndex = 5;
+            this.txtBoxQuantitySearch.Text = "Search by Quantity";
+            this.txtBoxQuantitySearch.Enter += new System.EventHandler(this.ClearText);
+            this.txtBoxQuantitySearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxQuantitySearch_KeyUp);
+            this.txtBoxQuantitySearch.Leave += new System.EventHandler(this.txtBoxQuantitySearch_Leave);
             // 
             // OrderlistGridViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(994, 528);
+            this.ClientSize = new System.Drawing.Size(1245, 555);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtBxSurnameSearch);
-            this.Controls.Add(this.txtBxEmailSearch);
-            this.Controls.Add(this.txtboxNameSearch);
-            this.Controls.Add(this.msktxtBxSearch);
+            this.Controls.Add(this.txtBxProductSearch);
+            this.Controls.Add(this.txtBoxQuantitySearch);
+            this.Controls.Add(this.txtBxDateSearch);
+            this.Controls.Add(this.txtboxClientSearch);
             this.Controls.Add(this.btnDeleteOrder);
             this.Controls.Add(this.btnMakeNewOrder);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1261, 594);
+            this.MinimumSize = new System.Drawing.Size(1261, 594);
             this.Name = "OrderlistGridViewForm";
             this.Text = "Orders";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderlistGridViewForm_FormClosed);
@@ -206,13 +222,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBxSurnameSearch;
-        private System.Windows.Forms.TextBox txtBxEmailSearch;
-        private System.Windows.Forms.TextBox txtboxNameSearch;
-        private System.Windows.Forms.MaskedTextBox msktxtBxSearch;
+        private System.Windows.Forms.TextBox txtBxProductSearch;
+        private System.Windows.Forms.TextBox txtBxDateSearch;
+        private System.Windows.Forms.TextBox txtboxClientSearch;
         private System.Windows.Forms.Button btnDeleteOrder;
         private System.Windows.Forms.Button btnMakeNewOrder;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtBoxQuantitySearch;
     }
 }

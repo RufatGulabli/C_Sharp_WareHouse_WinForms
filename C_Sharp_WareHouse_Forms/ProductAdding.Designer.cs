@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductAdding));
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.numrcUpDwnPrice = new System.Windows.Forms.NumericUpDown();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numricUpDownQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numrcUpDwnPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -113,6 +115,7 @@
             this.numricUpDownQuan.Name = "numricUpDownQuan";
             this.numricUpDownQuan.Size = new System.Drawing.Size(215, 26);
             this.numricUpDownQuan.TabIndex = 2;
+            this.numricUpDownQuan.Leave += new System.EventHandler(this.numricUpDownQuan_Leave);
             // 
             // richTextBoxDesc
             // 
@@ -187,6 +190,7 @@
             this.numrcUpDwnPrice.Name = "numrcUpDwnPrice";
             this.numrcUpDwnPrice.Size = new System.Drawing.Size(214, 26);
             this.numrcUpDwnPrice.TabIndex = 1;
+            this.numrcUpDwnPrice.Leave += new System.EventHandler(this.numrcUpDwnPrice_Leave);
             // 
             // pictureBox1
             // 
@@ -248,5 +252,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numrcUpDwnPrice;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

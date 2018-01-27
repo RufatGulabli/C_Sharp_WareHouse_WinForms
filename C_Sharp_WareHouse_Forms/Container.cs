@@ -56,17 +56,17 @@ namespace C_Sharp_WareHouse_Forms
         {
             var order = OrderList.Find(item => item.OrderID == id);
             var product = ProductList.Find(item => item.UniqueID == order.Product.UniqueID);
-            if(!(product is null))
+            if (!(product is null))
                 product.Quantity += order.Quantity;
             else
             {
                 Product pro = new Product()
                 {
-                    UniqueID = product.UniqueID,
-                    ArticleName = product.ArticleName,
-                    Price = product.Price,
-                    Quantity = product.Quantity,
-                    Description = product.Description,
+                    UniqueID = order.Product.UniqueID,
+                    ArticleName = order.Product.ArticleName,
+                    Price = order.Product.Price,
+                    Quantity = order.Quantity,
+                    Description = order.Product.Description,
                 };
                 ProductList.Add(pro);
             }
@@ -76,8 +76,7 @@ namespace C_Sharp_WareHouse_Forms
 
         public static int GetLastCustomerID()
         {
-            if (CustomerList.Count == 0)
-                return 0;
+            if (CustomerList.Count == 0) return 0;
             else
             {
                 int i = CustomerList[CustomerList.Count - 1].UniqueID;
@@ -87,8 +86,7 @@ namespace C_Sharp_WareHouse_Forms
 
         public static int GetLastProductID()
         {
-            if (ProductList.Count == 0)
-                return 0;
+            if (ProductList.Count == 0) return 0;
             else
             {
                 int i = ProductList[ProductList.Count - 1].UniqueID;
@@ -98,8 +96,7 @@ namespace C_Sharp_WareHouse_Forms
 
         public static int GetLastOrderID()
         {
-            if (OrderList.Count == 0)
-                return 0;
+            if (OrderList.Count == 0) return 0;
             else
             {
                 int i = OrderList[OrderList.Count - 1].OrderID;
