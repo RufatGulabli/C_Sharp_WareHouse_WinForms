@@ -216,8 +216,9 @@ namespace C_Sharp_WareHouse_Forms
 
         private void msktxtBxSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            var matchedItems = Containers.CustomerList.FindAll(item => item.Contact.IndexOf
-            (msktxtBxSearch.Text, 0, StringComparison.OrdinalIgnoreCase) == 0).ToList();
+            var matchedItems = Containers.CustomerList.FindAll(item => item.Contact.Equals(msktxtBxSearch.Text));
+            //var matchedItems = Containers.CustomerList.FindAll(item => item.Contact.IndexOf
+            //(msktxtBxSearch.Text, 0, StringComparison.OrdinalIgnoreCase) == 0).ToList();
             DataTable table = ConvertToDataTable(matchedItems);
             dataGridView1.DataSource = table;
         }
@@ -225,6 +226,7 @@ namespace C_Sharp_WareHouse_Forms
         private void msktxtBxSearch_Enter(object sender, EventArgs e)
         {
             msktxtBxSearch.ForeColor = Color.Black;
+            msktxtBxSearch.Text = "";
         }
     }
 }

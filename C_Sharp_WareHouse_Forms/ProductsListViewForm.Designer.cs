@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsDataGridtViewForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
@@ -46,20 +47,22 @@
             this.btnDeletePRD = new System.Windows.Forms.Button();
             this.btnAddPRD = new System.Windows.Forms.Button();
             this.dataGridViewPRD = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUpdatePRD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numrcUpDwnPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPRD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxSearch
             // 
             this.textBoxSearch.BackColor = System.Drawing.Color.White;
             this.textBoxSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxSearch.Location = new System.Drawing.Point(371, 182);
+            this.textBoxSearch.Location = new System.Drawing.Point(279, 184);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(275, 26);
+            this.textBoxSearch.Size = new System.Drawing.Size(256, 26);
             this.textBoxSearch.TabIndex = 11;
             this.textBoxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_KeyUp);
             // 
@@ -77,7 +80,7 @@
             this.pnlUpdatePRD.Controls.Add(this.lbl3Upd);
             this.pnlUpdatePRD.Controls.Add(this.lbl2Upd);
             this.pnlUpdatePRD.Controls.Add(this.lbl1Upd);
-            this.pnlUpdatePRD.Location = new System.Drawing.Point(662, 53);
+            this.pnlUpdatePRD.Location = new System.Drawing.Point(662, 55);
             this.pnlUpdatePRD.Name = "pnlUpdatePRD";
             this.pnlUpdatePRD.Size = new System.Drawing.Size(572, 155);
             this.pnlUpdatePRD.TabIndex = 32;
@@ -205,7 +208,7 @@
             this.lbl1Upd.AutoSize = true;
             this.lbl1Upd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl1Upd.ForeColor = System.Drawing.Color.White;
-            this.lbl1Upd.Location = new System.Drawing.Point(27, 14);
+            this.lbl1Upd.Location = new System.Drawing.Point(10, 12);
             this.lbl1Upd.Name = "lbl1Upd";
             this.lbl1Upd.Size = new System.Drawing.Size(45, 18);
             this.lbl1Upd.TabIndex = 10;
@@ -213,49 +216,58 @@
             // 
             // btnUpdatePRD
             // 
-            this.btnUpdatePRD.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnUpdatePRD.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdatePRD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdatePRD.BackgroundImage")));
+            this.btnUpdatePRD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnUpdatePRD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdatePRD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdatePRD.FlatAppearance.BorderSize = 0;
+            this.btnUpdatePRD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUpdatePRD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdatePRD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnUpdatePRD.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdatePRD.Location = new System.Drawing.Point(468, 114);
+            this.btnUpdatePRD.Location = new System.Drawing.Point(455, 86);
             this.btnUpdatePRD.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdatePRD.Name = "btnUpdatePRD";
             this.btnUpdatePRD.Size = new System.Drawing.Size(80, 61);
             this.btnUpdatePRD.TabIndex = 29;
-            this.btnUpdatePRD.Text = "Update Product";
             this.btnUpdatePRD.UseVisualStyleBackColor = false;
             this.btnUpdatePRD.Click += new System.EventHandler(this.btnUpdatePRD_Click);
             // 
             // btnDeletePRD
             // 
-            this.btnDeletePRD.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnDeletePRD.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeletePRD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeletePRD.BackgroundImage")));
+            this.btnDeletePRD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDeletePRD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeletePRD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeletePRD.FlatAppearance.BorderSize = 0;
+            this.btnDeletePRD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDeletePRD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletePRD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDeletePRD.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeletePRD.Location = new System.Drawing.Point(566, 114);
+            this.btnDeletePRD.Location = new System.Drawing.Point(367, 86);
             this.btnDeletePRD.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletePRD.Name = "btnDeletePRD";
             this.btnDeletePRD.Size = new System.Drawing.Size(80, 61);
             this.btnDeletePRD.TabIndex = 30;
-            this.btnDeletePRD.Text = "Delete Product";
             this.btnDeletePRD.UseVisualStyleBackColor = false;
             this.btnDeletePRD.Click += new System.EventHandler(this.btnDeletePRD_Click);
             // 
             // btnAddPRD
             // 
-            this.btnAddPRD.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnAddPRD.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPRD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddPRD.BackgroundImage")));
+            this.btnAddPRD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddPRD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPRD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddPRD.FlatAppearance.BorderSize = 0;
+            this.btnAddPRD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAddPRD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPRD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddPRD.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddPRD.Location = new System.Drawing.Point(371, 114);
+            this.btnAddPRD.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAddPRD.Location = new System.Drawing.Point(279, 86);
             this.btnAddPRD.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPRD.Name = "btnAddPRD";
             this.btnAddPRD.Size = new System.Drawing.Size(80, 61);
             this.btnAddPRD.TabIndex = 31;
-            this.btnAddPRD.Text = "Add New Product";
             this.btnAddPRD.UseVisualStyleBackColor = false;
             this.btnAddPRD.Click += new System.EventHandler(this.btnAddPRD_Click);
             // 
@@ -287,47 +299,62 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPRD.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPRD.Location = new System.Drawing.Point(12, 214);
+            this.dataGridViewPRD.Location = new System.Drawing.Point(3, 216);
             this.dataGridViewPRD.MultiSelect = false;
             this.dataGridViewPRD.Name = "dataGridViewPRD";
             this.dataGridViewPRD.ReadOnly = true;
             this.dataGridViewPRD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPRD.Size = new System.Drawing.Size(1222, 338);
+            this.dataGridViewPRD.Size = new System.Drawing.Size(1240, 375);
             this.dataGridViewPRD.TabIndex = 34;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, -25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(269, 235);
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(487, 9);
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(279, 165);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 23);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "LIST OF ALL PRODUCTS";
+            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Search";
             // 
             // ProductsDataGridtViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1246, 564);
-            this.Controls.Add(this.textBoxSearch);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(1262, 631);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.dataGridViewPRD);
             this.Controls.Add(this.pnlUpdatePRD);
             this.Controls.Add(this.btnUpdatePRD);
             this.Controls.Add(this.btnDeletePRD);
             this.Controls.Add(this.btnAddPRD);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1262, 631);
+            this.MinimumSize = new System.Drawing.Size(1262, 631);
             this.Name = "ProductsDataGridtViewForm";
-            this.Text = "ProductsListViewForm";
+            this.Text = "Products";
             this.Load += new System.EventHandler(this.ProductsDataGridtViewForm_Load);
             this.pnlUpdatePRD.ResumeLayout(false);
             this.pnlUpdatePRD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numrcUpDwnPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPRD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,6 +377,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numrcUpDwnPrice;
         private System.Windows.Forms.RichTextBox richTxtBxAddrUpd;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
     }
 }

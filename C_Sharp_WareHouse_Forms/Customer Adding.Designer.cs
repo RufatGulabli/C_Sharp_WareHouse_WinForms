@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerAdding));
             this.txtBxName = new System.Windows.Forms.TextBox();
             this.txtBxSurname = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,12 +83,14 @@
             this.maskdTxtBxPhone.Name = "maskdTxtBxPhone";
             this.maskdTxtBxPhone.Size = new System.Drawing.Size(189, 26);
             this.maskdTxtBxPhone.TabIndex = 3;
+            this.maskdTxtBxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskdTxtBxPhone_KeyPress);
+            this.maskdTxtBxPhone.Leave += new System.EventHandler(this.maskdTxtBxPhone_Leave);
             // 
             // richTxtBxAddr
             // 
             this.richTxtBxAddr.BackColor = System.Drawing.Color.White;
             this.richTxtBxAddr.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTxtBxAddr.Location = new System.Drawing.Point(169, 175);
+            this.richTxtBxAddr.Location = new System.Drawing.Point(169, 164);
             this.richTxtBxAddr.Name = "richTxtBxAddr";
             this.richTxtBxAddr.Size = new System.Drawing.Size(392, 64);
             this.richTxtBxAddr.TabIndex = 4;
@@ -141,7 +145,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(169, 154);
+            this.label5.Location = new System.Drawing.Point(166, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 16);
             this.label5.TabIndex = 3;
@@ -154,7 +158,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(96, 259);
+            this.button1.Location = new System.Drawing.Point(123, 247);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 26);
             this.button1.TabIndex = 5;
@@ -170,7 +174,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(346, 259);
+            this.button2.Location = new System.Drawing.Point(308, 247);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 26);
             this.button2.TabIndex = 6;
@@ -187,6 +191,10 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            // 
             // CustomerAdding
             // 
             this.AcceptButton = this.button1;
@@ -194,7 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(575, 301);
+            this.ClientSize = new System.Drawing.Size(575, 285);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -209,14 +217,16 @@
             this.Controls.Add(this.txtBxSurname);
             this.Controls.Add(this.txtBxName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(591, 340);
+            this.MaximumSize = new System.Drawing.Size(591, 324);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(591, 340);
+            this.MinimumSize = new System.Drawing.Size(591, 324);
             this.Name = "CustomerAdding";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Add New Customer";
+            this.Text = "New Customer";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerAdding_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -239,5 +249,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

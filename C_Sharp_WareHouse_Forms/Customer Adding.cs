@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace C_Sharp_WareHouse_Forms
 {
@@ -34,7 +28,7 @@ namespace C_Sharp_WareHouse_Forms
                 if ((!Regex.IsMatch(txtBxName.Text, @"^[a-zA-Z]{3,50}$")) 
                     || (!Regex.IsMatch(txtBxSurname.Text, @"^[a-zA-Z]{3,50}$")))
                     throw new Exception("Name or Surname can not contain any Numbers");
-                if (!maskdTxtBxPhone.MaskCompleted)
+                if (!maskdTxtBxPhone.MaskFull)
                     throw new Exception("Please fill Contact Deatils");
                 Customer cust = new Customer(txtBxName.Text, txtBxSurname.Text, txtBoxEmail.Text, maskdTxtBxPhone.Text, richTxtBxAddr.Text);
                 container.AddCustomer(cust);
@@ -57,5 +51,18 @@ namespace C_Sharp_WareHouse_Forms
         {
             Close();
         }
+
+        private void maskdTxtBxPhone_Leave(object sender, EventArgs e)
+        {
+            if (!maskdTxtBxPhone.MaskFull)
+                toolTip1.Show("NOT ALL DATA ENTERED", maskdTxtBxPhone, 10, 30, 5000);
+        }
+
+        private void maskdTxtBxPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+                toolTip1.Show("Phone number must contain only digits", maskdTxtBxPhone, 10, 30, 3000);
+        }
+
     }
 }
