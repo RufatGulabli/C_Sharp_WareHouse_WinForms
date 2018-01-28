@@ -49,7 +49,7 @@ namespace C_Sharp_WareHouse_Forms
             loginForm = new Login();
             loginForm.FormClosed += LoginForm_FormClosed;
             toolStripStatusLabel1.Text = $"Logged In as : {loginForm.Username}";
-            //loginForm.ShowDialog();
+            loginForm.ShowDialog();
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)

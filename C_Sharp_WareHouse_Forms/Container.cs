@@ -79,7 +79,7 @@ namespace C_Sharp_WareHouse_Forms
             if (CustomerList.Count == 0) return 0;
             else
             {
-                int i = CustomerList[CustomerList.Count - 1].UniqueID;
+                int i = CustomerList.OrderByDescending(item => item.UniqueID).First().UniqueID;
                 return i;
             }
         }
@@ -89,7 +89,7 @@ namespace C_Sharp_WareHouse_Forms
             if (ProductList.Count == 0) return 0;
             else
             {
-                int i = ProductList[ProductList.Count - 1].UniqueID;
+                int i = ProductList.OrderByDescending(item => item.UniqueID).First().UniqueID;
                 return i;
             }
         }
@@ -99,7 +99,7 @@ namespace C_Sharp_WareHouse_Forms
             if (OrderList.Count == 0) return 0;
             else
             {
-                int i = OrderList[OrderList.Count - 1].OrderID;
+                int i = OrderList.OrderByDescending(item => item.OrderID).First().OrderID;
                 return i;
             }
         }

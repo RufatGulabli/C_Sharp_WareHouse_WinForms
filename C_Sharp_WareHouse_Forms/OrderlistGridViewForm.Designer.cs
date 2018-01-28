@@ -34,13 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBxProductSearch = new System.Windows.Forms.TextBox();
-            this.txtBxDateSearch = new System.Windows.Forms.TextBox();
             this.txtboxClientSearch = new System.Windows.Forms.TextBox();
             this.btnDeleteOrder = new System.Windows.Forms.Button();
             this.btnMakeNewOrder = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBoxQuantitySearch = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,20 +58,6 @@
             this.txtBxProductSearch.Enter += new System.EventHandler(this.ClearText);
             this.txtBxProductSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBxProductSearch_KeyUp);
             this.txtBxProductSearch.Leave += new System.EventHandler(this.txtBxProductSearch_Leave);
-            // 
-            // txtBxDateSearch
-            // 
-            this.txtBxDateSearch.BackColor = System.Drawing.Color.White;
-            this.txtBxDateSearch.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtBxDateSearch.ForeColor = System.Drawing.Color.Silver;
-            this.txtBxDateSearch.Location = new System.Drawing.Point(674, 229);
-            this.txtBxDateSearch.Name = "txtBxDateSearch";
-            this.txtBxDateSearch.Size = new System.Drawing.Size(147, 26);
-            this.txtBxDateSearch.TabIndex = 4;
-            this.txtBxDateSearch.Text = "Search by Date";
-            this.txtBxDateSearch.Enter += new System.EventHandler(this.ClearText);
-            this.txtBxDateSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBxDateSearch_KeyUp);
-            this.txtBxDateSearch.Leave += new System.EventHandler(this.txtBxDateSearch_Leave);
             // 
             // txtboxClientSearch
             // 
@@ -188,7 +174,19 @@
             this.txtBoxQuantitySearch.TabIndex = 5;
             this.txtBoxQuantitySearch.Text = "Search by Quantity";
             this.txtBoxQuantitySearch.Enter += new System.EventHandler(this.ClearText);
+            this.txtBoxQuantitySearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxQuantitySearch_KeyUp_1);
             this.txtBoxQuantitySearch.Leave += new System.EventHandler(this.txtBoxQuantitySearch_Leave);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(674, 229);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(147, 26);
+            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // OrderlistGridViewForm
             // 
@@ -196,10 +194,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1245, 555);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtBxProductSearch);
             this.Controls.Add(this.txtBoxQuantitySearch);
-            this.Controls.Add(this.txtBxDateSearch);
             this.Controls.Add(this.txtboxClientSearch);
             this.Controls.Add(this.btnDeleteOrder);
             this.Controls.Add(this.btnMakeNewOrder);
@@ -222,12 +220,12 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtBxProductSearch;
-        private System.Windows.Forms.TextBox txtBxDateSearch;
         private System.Windows.Forms.TextBox txtboxClientSearch;
         private System.Windows.Forms.Button btnDeleteOrder;
         private System.Windows.Forms.Button btnMakeNewOrder;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtBoxQuantitySearch;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

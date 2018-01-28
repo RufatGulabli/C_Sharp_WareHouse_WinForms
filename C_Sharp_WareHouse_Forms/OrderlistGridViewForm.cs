@@ -148,15 +148,6 @@ namespace C_Sharp_WareHouse_Forms
             }
         }
 
-        private void txtBxDateSearch_Leave(object sender, EventArgs e)
-        {
-            if (txtBxDateSearch.Text == "")
-            {
-                txtBxDateSearch.ForeColor = Color.Silver;
-                txtBxDateSearch.Text = "Search by Date";
-            }
-        }
-
         private void txtBoxQuantitySearch_Leave(object sender, EventArgs e)
         {
             if (txtBoxQuantitySearch.Text == "")
@@ -175,31 +166,21 @@ namespace C_Sharp_WareHouse_Forms
             dataGridView1.DataSource = table;
         }
 
-        private void txtBxDateSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            //try
-            //{
-            //    DateTime keyword = txtBxDateSearch.Text;
-            //    var matchedItems = (!int.TryParse(keyword, out int digit)) ?
-            //        Containers.OrderList.FindAll(item => item.OrderedTime == keyword).ToList() :
-            //        throw new Exception("Please type only letters");
-            //    DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
-            //    dataGridView1.DataSource = table;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
-
-        private void txtBoxQuantitySearch_KeyUp(object sender, KeyEventArgs e)
+        private void txtBoxQuantitySearch_KeyUp_1(object sender, KeyEventArgs e)
         {
             try
             {
+                
                 string keyword = txtBoxQuantitySearch.Text;
-                var matchedItems = (!int.TryParse(keyword, out int digit)) ?
-                    Containers.OrderList.FindAll(item => item.Quantity == keyword).ToList() :
-                    throw new Exception("Please type only letters");
+                if (keyword.Length > 0 && char.IsLetter(keyword[0]))
+                    throw new Exception("Please enter only Numbers");
+                if (string.IsNullOrWhiteSpace(keyword))
+                {
+                    DataTable tabl = CustomerDataGridView.ConvertToDataTable(Containers.OrderList);
+                    dataGridView1.DataSource = tabl;
+                    return;
+                }
+                var matchedItems = Containers.OrderList.FindAll(item => item.Quantity == Convert.ToInt32(keyword)).ToList();
                 DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
                 dataGridView1.DataSource = table;
             }
@@ -209,5 +190,15 @@ namespace C_Sharp_WareHouse_Forms
             }
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            var matchedItems = Containers.OrderList.FindAll(item => 
+            item.OrderedTime.Year == dateTimePicker1.Value.Year &&
+            item.OrderedTime.Month == dateTimePicker1.Value.Month &&
+            item.OrderedTime.Day == dateTimePicker1.Value.Day);
+            DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
+            dataGridView1.DataSource = table;
+        }
     }
 }
+ 
