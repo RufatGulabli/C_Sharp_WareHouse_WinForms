@@ -98,12 +98,25 @@ namespace C_Sharp_WareHouse_Forms
 
         private void btnSaveUpd_Click(object sender, EventArgs e)
         {
-            int index = Convert.ToInt32(dataGridViewPRD.SelectedRows[0].Cells[0].Value);
-            container.UpdateProduct(index, txtBxNameUpd.Text, numrcUpDwnPrice.Value, 
-                (int)numericUpDown1.Value, richTxtBxAddrUpd.Text);
-            MessageBox.Show("Successfully Updated", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            dataGridViewPRD.Enabled = true;
-            pnlUpdatePRD.Visible = false;
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtBxNameUpd.Text))
+                    throw new Exception("Please fill all rows");
+                if (numericUpDown1.Value <= 0)
+                    throw new Exception("Quantity can not be 0 (zero)");
+                if (numrcUpDwnPrice.Value <= 0)
+                    throw new Exception("Price has not been set");
+                int index = Convert.ToInt32(dataGridViewPRD.SelectedRows[0].Cells[0].Value);
+                container.UpdateProduct(index, txtBxNameUpd.Text, numrcUpDwnPrice.Value,
+                    (int)numericUpDown1.Value, richTxtBxAddrUpd.Text);
+                MessageBox.Show("Successfully Updated", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridViewPRD.Enabled = true;
+                pnlUpdatePRD.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxSearch_KeyUp(object sender, KeyEventArgs e)

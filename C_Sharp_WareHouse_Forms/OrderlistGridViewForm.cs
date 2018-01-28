@@ -196,17 +196,18 @@ namespace C_Sharp_WareHouse_Forms
         {
             try
             {
-
-                int keyword = Convert.ToInt32(txtBxDateSearch.Text);
-                var matchedItems = Containers.OrderList.FindAll(item => item.Quantity == keyword).ToList();
+                string keyword = txtBoxQuantitySearch.Text;
+                var matchedItems = (!int.TryParse(keyword, out int digit)) ?
+                    Containers.OrderList.FindAll(item => item.Quantity == keyword).ToList() :
+                    throw new Exception("Please type only letters");
                 DataTable table = CustomerDataGridView.ConvertToDataTable(matchedItems);
                 dataGridView1.DataSource = table;
-                    //throw new Exception("Please type only letters");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
